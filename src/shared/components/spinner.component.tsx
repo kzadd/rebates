@@ -8,7 +8,7 @@ interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProp
   color?: 'error' | 'primary' | 'secondary' | 'success' | 'tertiary' | 'warning'
 }
 
-const spinnerVariants = cva('animate-spin flex items-center justify-center', {
+const spinnerVariants = cva('flex animate-spin items-center justify-center', {
   defaultVariants: {
     color: 'primary',
     size: 'md'
