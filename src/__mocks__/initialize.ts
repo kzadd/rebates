@@ -3,7 +3,7 @@ import { env } from '@app/shared/configs/environment.config'
 /**
  * Initializes and starts mock service worker.
  */
-export const initializeMockServiceWorker = async () => {
+export const initializeMockServiceWorker = async (): Promise<void> => {
   if (!env.IS_MOCKING_ENABLED) return
 
   try {
