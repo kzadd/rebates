@@ -6,5 +6,15 @@ import { Spinner } from '../components'
  * HOC to wrap a component with a suspense fallback.
  */
 export const withSuspense = (component: ReactNode): JSX.Element => {
-  return <Suspense fallback={<Spinner />}>{component}</Suspense>
+  return (
+    <Suspense
+      fallback={
+        <div className="flex h-screen items-center justify-center w-screen">
+          <Spinner size="lg" />
+        </div>
+      }
+    >
+      {component}
+    </Suspense>
+  )
 }
