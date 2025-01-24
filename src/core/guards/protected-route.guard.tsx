@@ -8,7 +8,7 @@ import { getCookie } from '@app/shared/utils/cookie.utils'
  * Guard that checks if user is authenticated via access token.
  * Redirects to login page if not authenticated.
  */
-export const AuthGuard = ({ children }: PropsWithChildren): ReactNode => {
+export const ProtectedRoute = ({ children }: PropsWithChildren): ReactNode => {
   const accessToken = getCookie('access_token')
 
   if (!accessToken) {
