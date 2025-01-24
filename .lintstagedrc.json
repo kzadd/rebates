@@ -1,0 +1,5 @@
+{
+  "**/*.test.{js,jsx,ts,tsx}": "vitest run --passWithNoTests",
+  "**/*.{html,scss}": ["prettier --write"],
+  "**/*.{js,jsx,ts,tsx}": ["prettier --write", "eslint --fix"]
+}
