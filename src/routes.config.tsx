@@ -13,8 +13,8 @@ const createLazyComponent = (path: string, componentName: string): LazyExoticCom
   })
 }
 
-const AuthenticationLayout = createLazyComponent('./layouts/auth/authentication-layout', 'Authentication')
-const BrandLayout = createLazyComponent('./layouts/brand/brand-layout', 'Brand')
+const AuthenticationLayout = createLazyComponent('./layouts/authentication.layout', 'Authentication')
+const BrandLayout = createLazyComponent('./layouts/brand.layout', 'Brand')
 const DashboardPage = createLazyComponent('./features/dashboard', 'Dashboard')
 const LoginPage = createLazyComponent('./features/login', 'Login')
 const NotFoundPage = createLazyComponent('./features/not-found', 'NotFound')

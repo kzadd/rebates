@@ -10,7 +10,7 @@ import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
  */
 export const Error404 = (): JSX.Element => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-4 duration-500 animate-in fade-in">
+    <div className="flex min-h-screen flex-col items-center justify-center p-4">
       <div className="flex w-full max-w-sm flex-col items-center justify-center gap-6 text-center lg:max-w-lg">
         <div className="flex h-28 w-28 items-center justify-center rounded-full bg-primary shadow-sm lg:h-32 lg:w-32">
           <span className="text-4xl text-white lg:text-5xl">404</span>
