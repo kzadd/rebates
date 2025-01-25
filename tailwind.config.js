@@ -21,6 +21,11 @@ export default {
       colors: {
         background: 'hsl(var(--primary-100))',
         black: 'hsl(var(--black))',
+        border: 'hsl(var(--gray-300))',
+        disabled: {
+          DEFAULT: 'hsl(var(--gray-200))',
+          foreground: 'hsl(var(--gray-400))'
+        },
         error: {
           100: 'hsl(var(--error-100))',
           200: 'hsl(var(--error-200))',

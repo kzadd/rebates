@@ -79,20 +79,25 @@ const factoryRequest = <T>(
  * Provides HTTP methods (DELETE, GET, PATCH, POST, PUT) for making API requests.
  * Each method uses the factory to ensure consistent request handling.
  */
-export const deleteRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> =>
-  request<T>('DELETE', url, options)
+export const deleteRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> => {
+  return request<T>('DELETE', url, options)
+}
 
-export const getRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> =>
-  request<T>('GET', url, options)
+export const getRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> => {
+  return request<T>('GET', url, options)
+}
 
-export const patchRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> =>
-  request<T>('PATCH', url, options)
+export const patchRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> => {
+  return request<T>('PATCH', url, options)
+}
 
-export const postRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> =>
-  request<T>('POST', url, options)
+export const postRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> => {
+  return request<T>('POST', url, options)
+}
 
-export const putRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> =>
-  request<T>('PUT', url, options)
+export const putRequest = <T>(url: string, options?: RequestHeadersOptions): Promise<NetworkResponse<T>> => {
+  return request<T>('PUT', url, options)
+}
 
 /**
  * Creates and configures HTTP requests with proper headers and body formatting.
