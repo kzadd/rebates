@@ -7,23 +7,24 @@
 @layer base {
   :root {
     /**
-     * Breakpoints.
-     */
-    --breakpoint-2xl: 1536px;
-    --breakpoint-lg: 992px;
-    --breakpoint-md: 768px;
-    --breakpoint-sm: 576px;
-    --breakpoint-xl: 1200px;
-
-    /**
      * Colors.
      */
+    --black: #2f2f2f;
+    --white: #ffffff;
+
+    --gray-100: #f8f8f8;
+    --gray-200: #e5e5e5;
+    --gray-300: #d4d4d4;
+    --gray-400: #c0c0c0;
+    --gray-500: #a9a9a9;
+    --gray-600: #888888;
+    --gray-700: #666666;
+    --gray-800: #444444;
+    --gray-900: #222222;
+
     --error-100: #feeceb;
     --error-200: #f88e86;
     --error-500: #f44336;
-
-    --neutral-black: #2f2f2f;
-    --neutral-white: #ffffff;
 
     --primary-100: #f3eff8;
     --primary-200: #b99ed7;
@@ -37,10 +38,6 @@
     --success-200: #94cf96;
     --success-500: #4caf50;
 
-    --tertiary-100: #fafafa;
-    --tertiary-200: #eaeaea;
-    --tertiary-500: #cfcdce;
-
     --warning-100: #fff9e6;
     --warning-200: #ffda6a;
     --warning-500: #ffc107;
@@ -48,7 +45,6 @@
     /**
      * Generals.
      */
-    --background: var(--primary-100);
     --border-radius: 0.5rem;
 
     /**
@@ -67,7 +63,7 @@
   }
 
   html {
-    @apply font-sans scroll-smooth text-neutral-black;
+    @apply font-sans scroll-smooth text-black;
     font-size: var(--font-size);
   }
 

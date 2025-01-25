@@ -5,7 +5,7 @@ import { LoaderCircle } from 'lucide-react'
 import { cn } from '../utils/shadcn.utils'
 
 interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof spinnerVariants> {
-  color?: 'error' | 'primary' | 'secondary' | 'success' | 'tertiary' | 'warning'
+  color?: 'error' | 'primary' | 'secondary' | 'success' | 'warning'
 }
 
 const spinnerVariants = cva('flex animate-spin items-center justify-center', {
@@ -19,7 +19,6 @@ const spinnerVariants = cva('flex animate-spin items-center justify-center', {
       primary: 'text-primary',
       secondary: 'text-secondary',
       success: 'text-success',
-      tertiary: 'text-tertiary',
       warning: 'text-warning'
     },
     size: {
