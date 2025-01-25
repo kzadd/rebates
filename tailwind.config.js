@@ -19,47 +19,39 @@ export default {
         xl: 'calc(var(--border-radius) + 0.125rem)'
       },
       colors: {
-        background: 'var(--primary-100)',
-        black: 'var(--black)',
+        background: 'hsl(var(--primary-100))',
+        black: 'hsl(var(--black))',
         error: {
-          100: 'var(--error-100)',
-          200: 'var(--error-200)',
-          DEFAULT: 'var(--error-500)',
-          foreground: 'var(--error-500)'
+          100: 'hsl(var(--error-100))',
+          200: 'hsl(var(--error-200))',
+          DEFAULT: 'hsl(var(--error-500))'
         },
-        muted: 'var(--gray-500)',
+        link: 'hsl(var(--blue-500))',
+        muted: 'hsl(var(--gray-700))',
         primary: {
-          100: 'var(--primary-100)',
-          200: 'var(--primary-200)',
-          DEFAULT: 'var(--primary-500)',
-          foreground: 'var(--primary-500)'
+          100: 'hsl(var(--primary-100))',
+          200: 'hsl(var(--primary-200))',
+          DEFAULT: 'hsl(var(--primary-500))'
         },
         secondary: {
-          100: 'var(--secondary-100)',
-          200: 'var(--secondary-200)',
-          DEFAULT: 'var(--secondary-500)',
-          foreground: 'var(--secondary-500)'
+          100: 'hsl(var(--secondary-100))',
+          200: 'hsl(var(--secondary-200))',
+          DEFAULT: 'hsl(var(--secondary-500))'
         },
         success: {
-          100: 'var(--success-100)',
-          200: 'var(--success-200)',
-          DEFAULT: 'var(--success-500)',
-          foreground: 'var(--success-500)'
+          100: 'hsl(var(--success-100))',
+          200: 'hsl(var(--success-200))',
+          DEFAULT: 'hsl(var(--success-500))'
         },
         warning: {
-          100: 'var(--warning-100)',
-          200: 'var(--warning-200)',
-          DEFAULT: 'var(--warning-500)',
-          foreground: 'var(--warning-500)'
+          100: 'hsl(var(--warning-100))',
+          200: 'hsl(var(--warning-200))',
+          DEFAULT: 'hsl(var(--warning-500))'
         },
-        white: 'var(--white)'
+        white: 'hsl(var(--white))'
       },
-      fontFamily: {
-        sans: 'var(--font-family)'
-      },
-      fontSize: {
-        base: 'var(--font-size)'
-      }
+      fontFamily: { sans: 'var(--font-family)' },
+      fontSize: { base: 'var(--font-size)' }
     }
   }
 }

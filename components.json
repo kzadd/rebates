@@ -1,10 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "aliases": {
-    "components": "src/shared/components",
-    "ui": "src/shared/components",
-    "utils": "src/shared/utils"
-  },
+  "aliases": { "components": "src/shared/components", "ui": "src/shared/components", "utils": "src/shared/utils" },
   "iconLibrary": "lucide",
   "rsc": false,
   "style": "new-york",

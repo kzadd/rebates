@@ -13,9 +13,7 @@
     "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "@app/*": ["./src/*"]
-    },
+    "paths": { "@app/*": ["./src/*"] },
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2020",

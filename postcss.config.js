@@ -2,8 +2,5 @@
  * PostCSS configuration.
  */
 export default {
-  plugins: {
-    autoprefixer: {},
-    tailwindcss: {}
-  }
+  plugins: { autoprefixer: {}, tailwindcss: {} }
 }

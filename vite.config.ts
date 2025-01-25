@@ -20,17 +20,12 @@ const viteConfig = defineConfig({
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'chunks/[name]-[hash].js',
         entryFileNames: '[name]-[hash].js',
-        manualChunks: {
-          redux: ['@reduxjs/toolkit', 'react-redux'],
-          vendor: ['react', 'react-dom', 'react-router-dom']
-        }
+        manualChunks: { redux: ['@reduxjs/toolkit', 'react-redux'], vendor: ['react', 'react-dom', 'react-router-dom'] }
       }
     },
     sourcemap: MODE !== 'production'
   },
-  optimizeDeps: {
-    include: ['@reduxjs/toolkit', 'react', 'react-dom', 'react-redux', 'react-router-dom']
-  },
+  optimizeDeps: { include: ['@reduxjs/toolkit', 'react', 'react-dom', 'react-redux', 'react-router-dom'] },
   plugins: [eslint(), react(), svgr(), tsconfigPaths()]
 })
 
@@ -39,9 +34,7 @@ const viteConfig = defineConfig({
  */
 const vitestConfig = defineVitestConfig({
   test: {
-    coverage: {
-      exclude: []
-    },
+    coverage: { exclude: [] },
     css: true,
     environment: 'jsdom',
     globals: true,
