@@ -9,9 +9,12 @@ import { reducer } from './reducer.config'
  */
 export const store = configureStore({
   devTools: env.MODE !== 'production',
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
+  middleware: getDefaultMiddleware => {
+    const middlewareOptions = {
       serializableCheck: false
-    }).concat(storeLogger),
+    }
+
+    return getDefaultMiddleware(middlewareOptions).concat(storeLogger)
+  },
   reducer
 })

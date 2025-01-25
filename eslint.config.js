@@ -16,7 +16,13 @@ export default tseslint.config({
   extends: [eslint.configs.recommended, ...tseslint.configs.recommended, ...tseslint.configs.stylistic],
   files: ['**/*.{js,jsx,ts,tsx}'],
   ignores: ['coverage', 'dist', 'node_modules'],
-  languageOptions: { ecmaVersion: 'latest', globals: { ...globals.browser, ...globals.node } },
+  languageOptions: {
+    ecmaVersion: 'latest',
+    globals: {
+      ...globals.browser,
+      ...globals.node
+    }
+  },
   plugins: {
     prettier,
     react,
@@ -30,7 +36,14 @@ export default tseslint.config({
     ...reactHooks.configs.recommended.rules,
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-empty-object-type': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { args: 'after-used', ignoreRestSiblings: false, vars: 'all' }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        args: 'after-used',
+        ignoreRestSiblings: false,
+        vars: 'all'
+      }
+    ],
     eqeqeq: ['error', 'always'],
     'jsx-quotes': ['warn', 'prefer-double'],
     'no-empty-pattern': 'warn',
@@ -41,7 +54,13 @@ export default tseslint.config({
     'quote-props': ['warn', 'as-needed'],
     'react/display-name': 'off',
     'react/jsx-boolean-value': ['error', 'never'],
-    'react/jsx-curly-brace-presence': ['warn', { children: 'ignore', props: 'never' }],
+    'react/jsx-curly-brace-presence': [
+      'warn',
+      {
+        children: 'ignore',
+        props: 'never'
+      }
+    ],
     'react/jsx-no-duplicate-props': 'error',
     'react/jsx-sort-props': [
       'warn',
@@ -68,9 +87,28 @@ export default tseslint.config({
         ]
       }
     ],
-    'sort-exports/sort-exports': ['warn', { ignoreCase: true, sortDir: 'asc', sortExportKindFirst: 'value' }],
-    'sort-keys': ['warn', 'asc', { caseSensitive: false, minKeys: 2, natural: true }],
+    'sort-exports/sort-exports': [
+      'warn',
+      {
+        ignoreCase: true,
+        sortDir: 'asc',
+        sortExportKindFirst: 'value'
+      }
+    ],
+    'sort-keys': [
+      'warn',
+      'asc',
+      {
+        caseSensitive: false,
+        minKeys: 2,
+        natural: true
+      }
+    ],
     'tailwindcss/classnames-order': 'warn'
   },
-  settings: { react: { version: 'detect' } }
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  }
 })

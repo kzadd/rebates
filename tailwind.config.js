@@ -50,8 +50,12 @@ export default {
         },
         white: 'hsl(var(--white))'
       },
-      fontFamily: { sans: 'var(--font-family)' },
-      fontSize: { base: 'var(--font-size)' }
+      fontFamily: {
+        sans: 'var(--font-family)'
+      },
+      fontSize: {
+        base: 'var(--font-size)'
+      }
     }
   }
 }
