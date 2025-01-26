@@ -33,13 +33,12 @@ const spinnerVariants = cva('flex animate-spin items-center justify-center', {
 
 export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(({ className, color, size, ...props }, ref) => {
   const spinnerClass = spinnerVariants({
-    className,
     color,
     size
   })
 
   return (
-    <div className={cn(spinnerClass)} ref={ref} {...props}>
+    <div className={cn(spinnerClass, className)} ref={ref} {...props}>
       <LoaderCircle className="h-full w-full" />
     </div>
   )

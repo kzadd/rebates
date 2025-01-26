@@ -23,7 +23,7 @@ export default {
         black: 'hsl(var(--black))',
         border: 'hsl(var(--gray-300))',
         disabled: {
-          DEFAULT: 'hsl(var(--gray-200))',
+          DEFAULT: 'hsl(var(--gray-100))',
           foreground: 'hsl(var(--gray-400))'
         },
         error: {
@@ -57,9 +57,6 @@ export default {
       },
       fontFamily: {
         sans: 'var(--font-family)'
-      },
-      fontSize: {
-        base: 'var(--font-size)'
       },
       height: {
         bottombar: 'var(--bottombar-height)',

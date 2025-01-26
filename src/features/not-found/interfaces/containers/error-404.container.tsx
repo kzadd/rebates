@@ -10,7 +10,7 @@ import { Button } from '@app/shared/components'
 export const Error404 = (): JSX.Element => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
-      <div className="flex w-full max-w-sm flex-col items-center justify-center gap-6 text-center md:max-w-lg">
+      <div className="flex w-full max-w-lg flex-col items-center justify-center gap-6 text-center md:max-w-lg">
         <div className="flex h-28 w-28 items-center justify-center rounded-full bg-primary shadow-sm md:h-32 md:w-32">
           <span className="text-4xl text-white md:text-5xl">404</span>
         </div>
@@ -22,7 +22,7 @@ export const Error404 = (): JSX.Element => {
           inicio.
         </p>
 
-        <Button asChild className="max-md:h-8 max-md:px-3 max-md:text-xs">
+        <Button asChild className="max-md:h-10 max-md:px-4">
           <Link to="">
             <Home />
             Ir al inicio

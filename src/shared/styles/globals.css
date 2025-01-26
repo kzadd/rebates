@@ -64,7 +64,6 @@
      * Typography.
      */
     --font-family: 'Montserrat Variable', sans-serif;
-    --font-size: 16px;
   }
 }
 
@@ -78,7 +77,6 @@
   body {
     -webkit-font-smoothing: antialiased;
     @apply bg-background font-normal font-sans m-0 min-h-screen min-w-[320px] scroll-smooth text-black w-full;
-    font-size: var(--font-size);
     font-synthesis: style;
     text-rendering: optimizeLegibility;
   }

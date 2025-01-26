@@ -11,7 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Var
 }
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:text-disabled-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm transition-colors disabled:cursor-not-allowed disabled:text-disabled-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     compoundVariants: [
       { class: 'bg-black hover:bg-black/90', color: 'default', variant: 'contained' },
@@ -37,7 +37,7 @@ const buttonVariants = cva(
     ],
     defaultVariants: {
       color: 'primary',
-      size: 'md',
+      size: 'lg',
       variant: 'contained'
     },
     variants: {
@@ -68,7 +68,6 @@ const buttonVariants = cva(
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ asChild = false, className, color, size, variant, ...props }, ref) => {
     const buttonClass = buttonVariants({
-      className,
       color,
       size,
       variant
@@ -76,7 +75,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const Component = asChild ? Slot : 'button'
 
-    return <Component className={cn(buttonClass)} ref={ref} {...props} />
+    return <Component className={cn(buttonClass, className)} ref={ref} {...props} />
   }
 )
 
