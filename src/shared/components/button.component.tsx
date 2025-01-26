@@ -2,11 +2,12 @@ import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 
+import { PaletteColor } from '../types/palette.types'
 import { cn } from '../utils/shadcn.utils'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  color?: 'default' | 'error' | 'primary' | 'secondary' | 'success' | 'warning'
+  color?: PaletteColor
 }
 
 const buttonVariants = cva(
@@ -28,8 +29,8 @@ const buttonVariants = cva(
       { class: 'border-warning text-warning hover:bg-warning/10', color: 'warning', variant: 'outlined' },
 
       { class: 'text-black hover:bg-black/10', color: 'default', variant: 'text' },
-      { class: 'text-primary hover:bg-primary/10', color: 'primary', variant: 'text' },
       { class: 'text-error hover:bg-error/10', color: 'error', variant: 'text' },
+      { class: 'text-primary hover:bg-primary/10', color: 'primary', variant: 'text' },
       { class: 'text-success hover:bg-success/10', color: 'success', variant: 'text' },
       { class: 'text-warning hover:bg-warning/10', color: 'warning', variant: 'text' },
       { class: 'text-secondary hover:bg-secondary/10', color: 'secondary', variant: 'text' }
