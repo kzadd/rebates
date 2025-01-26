@@ -65,6 +65,13 @@ export default {
         bottombar: 'var(--bottombar-height)',
         topbar: 'var(--topbar-height)'
       },
+      minHeight: {
+        bottombar: 'var(--bottombar-height)',
+        topbar: 'var(--topbar-height)'
+      },
+      minWidth: {
+        sidebar: 'var(--sidebar-width)'
+      },
       width: {
         sidebar: 'var(--sidebar-width)'
       }
