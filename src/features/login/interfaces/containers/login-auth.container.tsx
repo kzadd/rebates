@@ -37,7 +37,7 @@ export const LoginAuth = (): JSX.Element => {
         </div>
       </form>
 
-      <div className="flex flex-col items-center gap-2 px-8 pb-6 pt-12 text-center md:px-12">
+      <div className="flex flex-col items-center gap-2 px-8 py-6 text-center md:px-12">
         <Button asChild className="min-w-[140px] max-md:h-10 max-md:px-4 md:min-w-[200px]">
           <Link to="">
             <LogIn />

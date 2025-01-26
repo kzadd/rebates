@@ -10,16 +10,16 @@ interface InputProps
 }
 
 const inputVariants = cva(
-  'flex w-full rounded-lg border border-border bg-white text-sm shadow-sm outline-none transition-colors placeholder:text-disabled-foreground focus-visible:border-primary disabled:cursor-not-allowed disabled:bg-disabled',
+  'flex w-full rounded-lg border border-border bg-white text-sm shadow-sm outline-none transition-colors file:rounded-lg file:border-0 file:bg-transparent file:pl-0 file:pr-2 file:text-primary placeholder:text-disabled-foreground focus-visible:border-primary disabled:cursor-not-allowed disabled:bg-disabled',
   {
     defaultVariants: {
       size: 'lg'
     },
     variants: {
       size: {
-        lg: 'h-12 px-5',
-        md: 'h-10 px-4',
-        sm: 'h-8 px-3 text-xs'
+        lg: 'h-12 px-5 file:h-12',
+        md: 'h-10 px-4 file:h-10',
+        sm: 'h-8 px-3 text-xs file:h-8'
       }
     }
   }
