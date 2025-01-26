@@ -9,7 +9,7 @@ export const withSuspense = (component: ReactNode): JSX.Element => {
   return (
     <Suspense
       fallback={
-        <div className="flex h-screen w-screen items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center">
           <Spinner size="lg" />
         </div>
       }

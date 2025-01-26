@@ -56,6 +56,9 @@
      * Generals.
      */
     --border-radius: 0.5rem;
+    --bottombar-height: 2.875rem;
+    --sidebar-width: 16rem;
+    --topbar-height: 4rem;
 
     /**
      * Typography.
@@ -72,12 +75,11 @@
     @apply box-border m-0 p-0 border-border;
   }
 
-  html {
-    @apply font-sans scroll-smooth text-black;
-    font-size: var(--font-size);
-  }
-
   body {
-    @apply bg-background flex flex-col m-0 min-h-screen;
+    -webkit-font-smoothing: antialiased;
+    @apply bg-background font-normal font-sans m-0 min-h-screen min-w-[320px] scroll-smooth text-black w-full;
+    font-size: var(--font-size);
+    font-synthesis: style;
+    text-rendering: optimizeLegibility;
   }
 }

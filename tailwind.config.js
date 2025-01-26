@@ -60,6 +60,13 @@ export default {
       },
       fontSize: {
         base: 'var(--font-size)'
+      },
+      height: {
+        bottombar: 'var(--bottombar-height)',
+        topbar: 'var(--topbar-height)'
+      },
+      width: {
+        sidebar: 'var(--sidebar-width)'
       }
     }
   }
