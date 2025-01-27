@@ -11,7 +11,7 @@ import { Topbar } from './containers/topbar.container'
 export const Brand = (): JSX.Element => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false)
 
-  const handleCloseSidebar = () => setIsOpenSidebar(false)
+  const handleCloseSidebar = (): void => setIsOpenSidebar(false)
 
   return (
     <div className="flex min-h-screen flex-col pt-[var(--topbar-height)]">

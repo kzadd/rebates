@@ -44,6 +44,36 @@ export const routes: RouteObject[] = [
         element: <DashboardPage />,
         index: true,
         path: ROUTE_PATHS.root
+      },
+      {
+        element: <div>create new rebate</div>,
+        index: true,
+        path: ROUTE_PATHS.createNewRebate
+      },
+      {
+        element: <div>current</div>,
+        index: true,
+        path: ROUTE_PATHS.current
+      },
+      {
+        element: <div>pending approval</div>,
+        index: true,
+        path: ROUTE_PATHS.pendingApproval
+      },
+      {
+        element: <div>pending payment</div>,
+        index: true,
+        path: ROUTE_PATHS.pendingPayment
+      },
+      {
+        element: <div>pending review</div>,
+        index: true,
+        path: ROUTE_PATHS.pendingReview
+      },
+      {
+        element: <div>paid</div>,
+        index: true,
+        path: ROUTE_PATHS.paid
       }
     ],
     element: withSuspense(

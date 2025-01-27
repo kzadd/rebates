@@ -1,16 +1,25 @@
 import { JSX, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Eye, EyeOff, LogIn } from 'lucide-react'
 
 import { Button, Input, Label } from '@app/shared/components'
+import { FULL_ROUTE_PATHS, TOKEN_KEYS } from '@app/shared/constants/app.constant'
+import { putCookie } from '@app/shared/utils/cookie.utils'
 
 /**
  * Login auth container.
  */
 export const LoginAuth = (): JSX.Element => {
+  const navigate = useNavigate()
+
   const [showPassword, setShowPassword] = useState(false)
 
-  const handleTogglePasswordVisibility = () => setShowPassword(!showPassword)
+  const handleSingIn = (): void => {
+    putCookie(TOKEN_KEYS.accessToken, 'testing')
+    navigate(FULL_ROUTE_PATHS.dashboard.root)
+  }
+
+  const handleTogglePasswordVisibility = (): void => setShowPassword(!showPassword)
 
   return (
     <div className="w-full max-w-md rounded-lg bg-white shadow-xl">
@@ -62,15 +71,13 @@ export const LoginAuth = (): JSX.Element => {
       </form>
 
       <div className="flex flex-col items-center gap-2 px-8 py-6 text-center md:px-12">
-        <Button asChild className="min-w-[140px] max-md:h-10 max-md:px-4 md:min-w-[200px]">
-          <Link to="">
-            <LogIn />
-            Iniciar sesión
-          </Link>
+        <Button className="min-w-[140px] max-md:h-10 max-md:px-4 md:min-w-[200px]" onClick={handleSingIn}>
+          <LogIn />
+          Iniciar sesión
         </Button>
 
-        <Button asChild size="sm" variant="link">
-          <Link to="">Recuperar contraseña</Link>
+        <Button size="sm" variant="link">
+          Recuperar contraseña
         </Button>
       </div>
     </div>

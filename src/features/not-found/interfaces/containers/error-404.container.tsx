@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Home } from 'lucide-react'
 
 import { Button } from '@app/shared/components'
+import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
 
 /**
  * Error 404 container.
@@ -23,7 +24,7 @@ export const Error404 = (): JSX.Element => {
         </p>
 
         <Button asChild className="max-md:h-10 max-md:px-4">
-          <Link to="">
+          <Link to={FULL_ROUTE_PATHS.dashboard.root}>
             <Home />
             Ir al inicio
           </Link>
