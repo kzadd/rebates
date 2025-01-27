@@ -10,13 +10,13 @@ import { Topbar } from './containers/topbar.container'
 export const Authentication = (): JSX.Element => {
   return (
     <div className="flex min-h-screen flex-col">
-      <Topbar />
+      <Topbar variant="auth" />
 
       <main className="flex flex-1 items-center justify-center p-4">
         <Outlet />
       </main>
 
-      <Bottombar />
+      <Bottombar variant="auth" />
     </div>
   )
 }
