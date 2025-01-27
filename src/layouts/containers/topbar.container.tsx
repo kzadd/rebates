@@ -2,7 +2,7 @@ import { JSX } from 'react'
 import { Link } from 'react-router-dom'
 import { LogOut } from 'lucide-react'
 
-import { Button } from '@app/shared/components'
+import { Button, Separator } from '@app/shared/components'
 import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
 import { LayoutOptions } from '@app/shared/types/layout.types'
 
@@ -19,7 +19,7 @@ export const Topbar = ({ variant }: LayoutOptions): JSX.Element => {
       {variant === 'default' && (
         <div className="flex items-center gap-2">
           <span className="px-3 text-xs text-white md:text-sm">Mateo López Fernández</span>
-          <span className="h-6 w-[1px] bg-white/20" />
+          <Separator className="h-6 bg-white/20" orientation="vertical" />
 
           <Button className="text-xs text-white md:text-sm" size="sm" variant="text">
             <LogOut className="text-error" />
