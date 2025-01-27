@@ -11,7 +11,7 @@ import { LayoutOptions } from '@app/shared/types/layout.types'
  */
 export const Topbar = ({ variant }: LayoutOptions): JSX.Element => {
   return (
-    <header className="flex min-h-topbar items-center justify-between gap-4 bg-black px-4 md:px-8">
+    <header className="fixed left-0 right-0 top-0 z-50 flex min-h-topbar items-center justify-between gap-4 bg-black px-4 md:px-8">
       <Link to={FULL_ROUTE_PATHS.dashboard.root}>
         <img alt="logo-ripley" className="w-36 md:w-44" src="/images/logo.png" />
       </Link>
