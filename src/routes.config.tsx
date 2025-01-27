@@ -1,23 +1,18 @@
-import { lazy, LazyExoticComponent, ReactElement } from 'react'
+import { lazy } from 'react'
 import { Navigate, RouteObject } from 'react-router-dom'
 
 import { ProtectedRoute } from './core/guards/protected-route.guard'
 import { ROUTE_PATHS } from './shared/constants/routes.constant'
 import { withSuspense } from './shared/hoc/with-suspense.hoc'
 
-const createLazyComponent = (path: string, componentName: string): LazyExoticComponent<() => ReactElement> => {
-  return lazy(() => {
-    return import(path).then(module => ({
-      default: module[componentName]
-    }))
-  })
-}
+const AuthenticationLayout = lazy(() =>
+  import('./layouts/authentication.layout').then(module => ({ default: module.Authentication }))
+)
 
-const AuthenticationLayout = createLazyComponent('./layouts/authentication.layout', 'Authentication')
-const BrandLayout = createLazyComponent('./layouts/brand.layout', 'Brand')
-const DashboardPage = createLazyComponent('./features/dashboard', 'Dashboard')
-const LoginPage = createLazyComponent('./features/login', 'Login')
-const NotFoundPage = createLazyComponent('./features/not-found', 'NotFound')
+const BrandLayout = lazy(() => import('./layouts/brand.layout').then(module => ({ default: module.Brand })))
+const DashboardPage = lazy(() => import('./features/dashboard').then(module => ({ default: module.Dashboard })))
+const LoginPage = lazy(() => import('./features/login').then(module => ({ default: module.Login })))
+const NotFoundPage = lazy(() => import('./features/not-found').then(module => ({ default: module.NotFound })))
 
 /**
  * Routes configuration.
