@@ -67,10 +67,12 @@ export default {
         topbar: 'var(--topbar-height)'
       },
       minWidth: {
-        sidebar: 'var(--sidebar-width)'
+        sidebar: 'var(--sidebar-width)',
+        sidebarIcon: 'var(--sidebar-icon-width)'
       },
       width: {
-        sidebar: 'var(--sidebar-width)'
+        sidebar: 'var(--sidebar-width)',
+        sidebarIcon: 'var(--sidebar-icon-width)'
       }
     }
   }
