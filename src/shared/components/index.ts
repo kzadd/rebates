@@ -1,4 +1,5 @@
 export * from './button.component'
+export * from './dropdown-menu'
 export * from './input.component'
 export * from './label.component'
 export * from './separator'

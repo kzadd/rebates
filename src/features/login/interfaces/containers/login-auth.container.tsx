@@ -50,7 +50,6 @@ export const LoginAuth = (): JSX.Element => {
             />
 
             <Button
-              aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
               className="absolute right-0 top-0 h-full hover:bg-transparent hover:shadow-none"
               onClick={handleTogglePasswordVisibility}
               size="icon"
