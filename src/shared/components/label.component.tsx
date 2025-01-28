@@ -8,16 +8,11 @@ interface LabelProps
   extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>,
     VariantProps<typeof labelVariants> {}
 
-const labelVariants = cva('text-[10px] font-semibold uppercase tracking-wider', {
-  defaultVariants: {},
-  variants: {}
-})
+const labelVariants = cva('text-[10px] font-semibold uppercase tracking-wider')
 
 export const Label = React.forwardRef<React.ComponentRef<typeof LabelPrimitive.Root>, LabelProps>(
   ({ className, ...props }, ref) => {
-    const labelClass = labelVariants()
-
-    return <LabelPrimitive.Root className={cn(labelClass, className)} ref={ref} {...props} />
+    return <LabelPrimitive.Root className={cn(labelVariants(), className)} ref={ref} {...props} />
   }
 )
 

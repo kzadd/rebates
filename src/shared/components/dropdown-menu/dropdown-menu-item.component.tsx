@@ -9,7 +9,7 @@ interface DropdownMenuItemProps
     VariantProps<typeof dropdownMenuItemVariants> {}
 
 const dropdownMenuItemVariants = cva(
-  'relative flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm outline-none transition-colors focus:bg-popover-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'relative flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm outline-none transition-colors focus:bg-popover-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     defaultVariants: {
       inset: false

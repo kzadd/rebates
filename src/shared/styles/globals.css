@@ -77,7 +77,7 @@
 
   body {
     -webkit-font-smoothing: antialiased;
-    @apply bg-background font-normal font-sans m-0 min-h-screen min-w-[360px] scroll-smooth text-black w-full;
+    @apply bg-background font-normal font-sans min-h-screen min-w-[360px] scroll-smooth text-black;
     font-synthesis: style;
     text-rendering: optimizeLegibility;
   }

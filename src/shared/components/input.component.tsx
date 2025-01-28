@@ -10,7 +10,7 @@ interface InputProps
 }
 
 const inputVariants = cva(
-  'flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-white text-sm shadow-sm outline-none transition-colors file:rounded-lg file:border-0 file:bg-transparent file:pl-0 file:pr-2 file:text-primary placeholder:text-disabled-foreground focus-visible:border-primary disabled:cursor-not-allowed disabled:bg-disabled [&>span]:line-clamp-1',
+  'flex w-full items-center justify-between truncate rounded-lg border border-border bg-white text-sm shadow-sm outline-none transition-colors file:rounded-lg file:border-0 file:bg-transparent file:pl-0 file:pr-2 file:text-primary placeholder:text-disabled-foreground focus-visible:border-primary disabled:cursor-not-allowed disabled:bg-disabled [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     defaultVariants: {
       size: 'lg'
