@@ -1,13 +1,13 @@
 export const ROUTE_PATHS = {
   auth: 'auth',
   createNewRebate: 'create-new-rebate',
-  current: 'current',
+  currentRebate: 'current-rebate',
   dashboard: 'dashboard',
   login: 'login',
   notFound: '*',
-  paid: 'paid',
-  pendingApproval: 'pending-approval',
-  pendingPayment: 'pending-payment',
-  pendingReview: 'pending-review',
+  paidRebate: 'paid-rebate',
+  pendingApprovalRebate: 'pending-approval-rebate',
+  pendingPaymentRebate: 'pending-payment-rebate',
+  pendingReviewRebate: 'pending-review-rebate',
   root: ''
 }

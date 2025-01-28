@@ -36,27 +36,27 @@ const menuItems: MenuItem[] = [
   {
     icon: 'CalendarCheck',
     label: 'Vigentes',
-    path: FULL_ROUTE_PATHS.dashboard.current
+    path: FULL_ROUTE_PATHS.dashboard.currentRebate
   },
   {
     icon: 'Hourglass',
     label: 'Pendiente aprobación',
-    path: FULL_ROUTE_PATHS.dashboard.pendingApproval
+    path: FULL_ROUTE_PATHS.dashboard.pendingApprovalRebate
   },
   {
     icon: 'CalendarClock',
     label: 'Pendiente pago',
-    path: FULL_ROUTE_PATHS.dashboard.pendingPayment
+    path: FULL_ROUTE_PATHS.dashboard.pendingPaymentRebate
   },
   {
     icon: 'PencilLine',
     label: 'Pendiente revisión',
-    path: FULL_ROUTE_PATHS.dashboard.pendingReview
+    path: FULL_ROUTE_PATHS.dashboard.pendingReviewRebate
   },
   {
     icon: 'FileCheck',
     label: 'Pagados',
-    path: FULL_ROUTE_PATHS.dashboard.paid
+    path: FULL_ROUTE_PATHS.dashboard.paidRebate
   }
 ]
 

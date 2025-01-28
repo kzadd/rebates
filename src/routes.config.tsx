@@ -5,14 +5,27 @@ import { ProtectedRoute } from './core/guards/protected-route.guard'
 import { ROUTE_PATHS } from './shared/constants/routes.constant'
 import { withSuspense } from './shared/hoc/with-suspense.hoc'
 
-const AuthenticationLayout = lazy(() =>
-  import('./layouts/authentication.layout').then(module => ({ default: module.Authentication }))
-)
+/**
+ * Helper function to create lazy loaded components
+ */
+const createLazyComponent = (path: string, moduleName: string) => {
+  return lazy(() => {
+    // @vite-ignore
+    return import(path).then(module => ({ default: module[moduleName] }))
+  })
+}
 
-const BrandLayout = lazy(() => import('./layouts/brand.layout').then(module => ({ default: module.Brand })))
-const DashboardPage = lazy(() => import('./features/dashboard').then(module => ({ default: module.Dashboard })))
-const LoginPage = lazy(() => import('./features/login').then(module => ({ default: module.Login })))
-const NotFoundPage = lazy(() => import('./features/not-found').then(module => ({ default: module.NotFound })))
+const AuthenticationLayout = createLazyComponent('./layouts/authentication.layout', 'Authentication')
+const BrandLayout = createLazyComponent('./layouts/brand.layout', 'Brand')
+const CreateNewRebatePage = createLazyComponent('./features/create-new-rebate', 'CreateNewRebate')
+const CurrentRebatePage = createLazyComponent('./features/current-rebate', 'CurrentRebate')
+const DashboardPage = createLazyComponent('./features/dashboard', 'Dashboard')
+const LoginPage = createLazyComponent('./features/login', 'Login')
+const NotFoundPage = createLazyComponent('./features/not-found', 'NotFound')
+const PaidRebatePage = createLazyComponent('./features/paid-rebate', 'PaidRebate')
+const PendingApprovalRebatePage = createLazyComponent('./features/pending-approval-rebate', 'PendingApprovalRebate')
+const PendingPaymentRebatePage = createLazyComponent('./features/pending-payment-rebate', 'PendingPaymentRebate')
+const PendingReviewRebatePage = createLazyComponent('./features/pending-review-rebate', 'PendingReviewRebate')
 
 /**
  * Routes configuration.
@@ -46,34 +59,34 @@ export const routes: RouteObject[] = [
         path: ROUTE_PATHS.root
       },
       {
-        element: <div>create new rebate</div>,
+        element: <CreateNewRebatePage />,
         index: true,
         path: ROUTE_PATHS.createNewRebate
       },
       {
-        element: <div>current</div>,
+        element: <CurrentRebatePage />,
         index: true,
-        path: ROUTE_PATHS.current
+        path: ROUTE_PATHS.currentRebate
       },
       {
-        element: <div>pending approval</div>,
+        element: <PendingApprovalRebatePage />,
         index: true,
-        path: ROUTE_PATHS.pendingApproval
+        path: ROUTE_PATHS.pendingApprovalRebate
       },
       {
-        element: <div>pending payment</div>,
+        element: <PendingPaymentRebatePage />,
         index: true,
-        path: ROUTE_PATHS.pendingPayment
+        path: ROUTE_PATHS.pendingPaymentRebate
       },
       {
-        element: <div>pending review</div>,
+        element: <PendingReviewRebatePage />,
         index: true,
-        path: ROUTE_PATHS.pendingReview
+        path: ROUTE_PATHS.pendingReviewRebate
       },
       {
-        element: <div>paid</div>,
+        element: <PaidRebatePage />,
         index: true,
-        path: ROUTE_PATHS.paid
+        path: ROUTE_PATHS.paidRebate
       }
     ],
     element: withSuspense(

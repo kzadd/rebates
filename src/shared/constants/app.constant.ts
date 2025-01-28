@@ -6,11 +6,11 @@ export const FULL_ROUTE_PATHS = {
   },
   dashboard: {
     createNewRebate: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.createNewRebate}`,
-    current: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.current}`,
-    paid: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.paid}`,
-    pendingApproval: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.pendingApproval}`,
-    pendingPayment: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.pendingPayment}`,
-    pendingReview: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.pendingReview}`,
+    currentRebate: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.currentRebate}`,
+    paidRebate: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.paidRebate}`,
+    pendingApprovalRebate: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.pendingApprovalRebate}`,
+    pendingPaymentRebate: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.pendingPaymentRebate}`,
+    pendingReviewRebate: `/${ROUTE_PATHS.dashboard}/${ROUTE_PATHS.pendingReviewRebate}`,
     root: `/${ROUTE_PATHS.dashboard}`
   }
 }
