@@ -33,6 +33,10 @@ export default {
         },
         link: 'hsl(var(--blue-500))',
         muted: 'hsl(var(--gray-700))',
+        popover: {
+          DEFAULT: 'hsl(var(--white))',
+          foreground: 'hsl(var(--primary-100))'
+        },
         primary: {
           100: 'hsl(var(--primary-100))',
           200: 'hsl(var(--primary-200))',

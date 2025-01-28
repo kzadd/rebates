@@ -6,9 +6,7 @@ import { cn } from '../../utils/shadcn.utils'
 
 interface DropdownMenuLabelProps
   extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>,
-    VariantProps<typeof dropdownMenuLabelVariants> {
-  inset?: boolean
-}
+    VariantProps<typeof dropdownMenuLabelVariants> {}
 
 const dropdownMenuLabelVariants = cva('px-2 text-sm font-medium', {
   defaultVariants: {
@@ -17,7 +15,7 @@ const dropdownMenuLabelVariants = cva('px-2 text-sm font-medium', {
   variants: {
     inset: {
       false: '',
-      true: 'pl-4'
+      true: 'pl-6'
     }
   }
 })

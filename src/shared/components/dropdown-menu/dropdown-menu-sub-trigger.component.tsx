@@ -7,12 +7,10 @@ import { cn } from '../../utils/shadcn.utils'
 
 interface DropdownMenuSubTriggerProps
   extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger>,
-    VariantProps<typeof dropdownMenuSubTriggerVariants> {
-  inset?: boolean
-}
+    VariantProps<typeof dropdownMenuSubTriggerVariants> {}
 
 const dropdownMenuSubTriggerVariants = cva(
-  'flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm outline-none focus:bg-primary/10 data-[state=open]:bg-primary/20 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm outline-none focus:bg-popover-foreground data-[state=open]:bg-primary/20 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     defaultVariants: {
       inset: false
@@ -20,7 +18,7 @@ const dropdownMenuSubTriggerVariants = cva(
     variants: {
       inset: {
         false: '',
-        true: 'pl-4'
+        true: 'pl-6'
       }
     }
   }

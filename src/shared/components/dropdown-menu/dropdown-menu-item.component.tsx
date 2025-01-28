@@ -6,12 +6,10 @@ import { cn } from '../../utils/shadcn.utils'
 
 interface DropdownMenuItemProps
   extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>,
-    VariantProps<typeof dropdownMenuItemVariants> {
-  inset?: boolean
-}
+    VariantProps<typeof dropdownMenuItemVariants> {}
 
 const dropdownMenuItemVariants = cva(
-  'relative flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm outline-none transition-colors focus:bg-primary/10 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'relative flex cursor-default select-none items-center gap-2 rounded-sm p-2 text-sm outline-none transition-colors focus:bg-popover-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     defaultVariants: {
       inset: false
@@ -19,7 +17,7 @@ const dropdownMenuItemVariants = cva(
     variants: {
       inset: {
         false: '',
-        true: 'pl-4'
+        true: 'pl-6'
       }
     }
   }
