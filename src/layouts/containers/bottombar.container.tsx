@@ -4,7 +4,7 @@ import { LayoutOptions } from '@app/shared/types/layout.types'
 import { cn } from '@app/shared/utils/shadcn.utils'
 
 /**
- * Bottombar Container.
+ * Bottombar container.
  */
 export const Bottombar = ({ variant }: LayoutOptions): JSX.Element => {
   return (

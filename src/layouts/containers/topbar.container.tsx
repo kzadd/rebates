@@ -17,7 +17,7 @@ import { LayoutOptions } from '@app/shared/types/layout.types'
 import { deleteCookie } from '@app/shared/utils/cookie.utils'
 
 /**
- * Topbar Container.
+ * Topbar container.
  */
 export const Topbar = ({ variant }: LayoutOptions): JSX.Element => {
   const navigate = useNavigate()

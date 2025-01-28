@@ -1,5 +1,5 @@
 import { JSX } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import {
   CalendarCheck,
   CalendarClock,
@@ -21,11 +21,6 @@ interface SidebarProps {
   isOpenSidebar: boolean
   setIsOpenSidebar: (open: boolean) => void
 }
-
-const COMMON_BUTTON_CLASSES =
-  'flex cursor-pointer items-center gap-4 rounded-lg p-3 transition-colors duration-200 hover:bg-secondary'
-
-const COMMON_TEXT_CLASSES = 'whitespace-nowrap text-sm leading-[normal] tracking-wide'
 
 const menuItems: MenuItem[] = [
   {
@@ -66,9 +61,11 @@ const menuItems: MenuItem[] = [
 ]
 
 /**
- * Sidebar.
+ * Sidebar container.
  */
 export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.Element => {
+  const location = useLocation()
+
   const getIcon = (iconName: string): JSX.Element => {
     const icons = {
       CalendarCheck,
@@ -84,7 +81,15 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
 
     const Icon = icons[iconName as keyof typeof icons]
 
-    return <Icon className="h-5 w-6 flex-shrink-0 transition-transform duration-200 hover:scale-110" />
+    return <Icon className="h-5 w-5 transition-transform duration-200 hover:scale-110" />
+  }
+
+  const isActive = (path: string): boolean => {
+    if (path === FULL_ROUTE_PATHS.dashboard.root) {
+      return location.pathname === path
+    }
+
+    return location.pathname.startsWith(path)
   }
 
   const handleToggleSidebar = (): void => setIsOpenSidebar(!isOpenSidebar)
@@ -92,13 +97,15 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
   return (
     <aside
       className={cn(
-        'fixed bottom-0 left-0 top-[var(--topbar-height)] z-50 flex flex-col gap-6 bg-primary text-white shadow-lg transition-all duration-300',
-        isOpenSidebar ? 'w-sidebar p-8' : 'w-sidebarIcon items-center py-8'
+        'fixed bottom-0 left-0 top-[var(--topbar-height)] z-50 flex flex-col gap-4 bg-primary text-white transition-all duration-300',
+        isOpenSidebar ? 'w-sidebar p-4' : 'w-sidebarIcon items-center py-4'
       )}
     >
       <div
-        aria-label={isOpenSidebar ? 'Cerrar menú' : 'Abrir menú'}
-        className={cn(COMMON_BUTTON_CLASSES, isOpenSidebar && 'w-fit self-end gap-1', 'hover:bg-black')}
+        className={cn(
+          'flex rounded-lg p-3 transition-colors duration-200 hover:bg-black',
+          isOpenSidebar && 'gap-2 self-end'
+        )}
         onClick={handleToggleSidebar}
         role="button"
         tabIndex={0}
@@ -107,7 +114,7 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
 
         {isOpenSidebar && (
           <>
-            <span className={COMMON_TEXT_CLASSES}>Cerrar</span>
+            <span className="whitespace-nowrap text-sm tracking-wide">Cerrar</span>
             {getIcon('X')}
           </>
         )}
@@ -115,24 +122,25 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
 
       <Separator className={cn('w-3/5 bg-black/20', isOpenSidebar && 'w-full')} />
 
-      <nav
-        aria-label="Menú principal"
-        className={cn('flex flex-col gap-2', !isOpenSidebar && 'items-center')}
-        role="navigation"
-      >
+      <nav className="flex flex-col gap-2" role="navigation">
         {menuItems.map((item, index) => (
           <Link
-            aria-label={item.label}
-            className={cn(COMMON_BUTTON_CLASSES, 'relative group')}
+            className={cn(
+              'group relative flex items-center gap-4 rounded-lg p-3 transition-colors duration-200 hover:bg-secondary',
+              isActive(item.path) && 'bg-secondary'
+            )}
             key={`menu-item-${item.label}-${index}`}
-            onClick={isOpenSidebar ? () => setIsOpenSidebar(false) : undefined}
+            onClick={() => isOpenSidebar && setIsOpenSidebar(false)}
             to={item.path}
           >
             {getIcon(item.icon)}
-            {isOpenSidebar && <span className={cn(COMMON_TEXT_CLASSES, 'overflow-hidden')}>{item.label}</span>}
+
+            {isOpenSidebar && (
+              <span className="overflow-hidden whitespace-nowrap text-sm tracking-wide">{item.label}</span>
+            )}
 
             {!isOpenSidebar && (
-              <span className="absolute left-full ml-3 w-max rounded-md bg-black px-3 py-2 text-xs opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="absolute left-full ml-4 w-max rounded-lg bg-black p-2 text-xs opacity-0 transition-opacity group-hover:opacity-100">
                 {item.label}
               </span>
             )}
