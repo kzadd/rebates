@@ -142,7 +142,7 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
             )}
 
             {!isOpenSidebar && (
-              <span className="absolute left-full ml-4 w-max rounded-lg bg-black p-2 text-xs opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="none absolute left-full ml-3 hidden w-max rounded-md bg-black px-3 py-2 text-xs opacity-0 transition-opacity group-hover:block group-hover:opacity-100">
                 {item.label}
               </span>
             )}
