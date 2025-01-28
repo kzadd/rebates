@@ -3,9 +3,9 @@ import { JSX } from 'react'
 import { Separator } from '@app/shared/components'
 
 /**
- * Welcome container.
+ * Heading container.
  */
-export const WelcomeContainer = (): JSX.Element => {
+export const HeadingContainer = (): JSX.Element => {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-xl">¡Hola!</h1>
