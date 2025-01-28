@@ -114,7 +114,7 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
 
         {isOpenSidebar && (
           <>
-            <span className="whitespace-nowrap text-sm tracking-wide">Cerrar</span>
+            <span className="whitespace-nowrap text-sm">Cerrar</span>
             {getIcon('X')}
           </>
         )}
@@ -136,7 +136,9 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
             {getIcon(item.icon)}
 
             {isOpenSidebar && (
-              <span className="overflow-hidden whitespace-nowrap text-sm tracking-wide">{item.label}</span>
+              <span className={cn('overflow-hidden whitespace-nowrap text-sm', isActive(item.path) && 'font-semibold')}>
+                {item.label}
+              </span>
             )}
 
             {!isOpenSidebar && (
