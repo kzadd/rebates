@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 
-import { LoginAuth } from './interfaces/containers/login-auth.container'
+import { LoginAuth } from './ui/containers/login-auth.container'
 
 /**
  * Login page.

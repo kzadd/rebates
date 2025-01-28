@@ -1,1 +1,1 @@
-export * from './interfaces/pages/dashboard.page'
+export * from './dashboard.page'

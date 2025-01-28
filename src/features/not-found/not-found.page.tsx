@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 
-import { Error404 } from './interfaces/containers/error-404.container'
+import { Error404 } from './ui/containers/error-404.container'
 
 /**
  * Not found page.

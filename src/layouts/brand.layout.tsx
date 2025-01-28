@@ -1,9 +1,9 @@
 import { JSX, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { Bottombar } from './containers/bottombar.container'
-import { Sidebar } from './containers/sidebar.container'
-import { Topbar } from './containers/topbar.container'
+import { Bottombar } from './ui/containers/bottombar.container'
+import { Sidebar } from './ui/containers/sidebar.container'
+import { Topbar } from './ui/containers/topbar.container'
 
 /**
  * Brand layout.
