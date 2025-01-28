@@ -2,7 +2,7 @@ import { JSX, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Eye, EyeOff, LogIn } from 'lucide-react'
 
-import { Button, Input, Label } from '@app/shared/components'
+import { Button, Input, Label, Separator } from '@app/shared/components'
 import { FULL_ROUTE_PATHS, TOKEN_KEYS } from '@app/shared/constants/app.constant'
 import { putCookie } from '@app/shared/utils/cookie.utils'
 
@@ -22,35 +22,28 @@ export const LoginAuth = (): JSX.Element => {
   const handleTogglePasswordVisibility = (): void => setShowPassword(!showPassword)
 
   return (
-    <div className="w-full max-w-md rounded-lg bg-white shadow-xl">
-      <div className="flex items-center justify-center border-b border-border px-8 py-6 text-center md:px-12">
-        <h1 className="text-xl font-bold">Sistema de gestión de rebates</h1>
+    <div className="flex w-full max-w-md flex-col gap-8 rounded-lg bg-white p-8 text-center shadow-xl">
+      <h1 className="text-xl font-bold">Sistema de gestión de rebates</h1>
+
+      <Separator className="-mx-8 w-[calc(100%+64px)]" />
+
+      <div className="flex flex-col items-center gap-2">
+        <p className="text-xl text-primary">¡Te damos la bienvenida!</p>
+        <p className="text-xs">Ingresa tu usuario y contraseña para iniciar sesión</p>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-2 px-8 py-6 text-center md:px-12">
-        <p className="text-lg text-primary md:text-xl">¡Te damos la bienvenida!</p>
-        <p className="text-xs md:text-sm">Ingresa tu usuario y contraseña para iniciar sesión</p>
-      </div>
-
-      <form className="flex flex-col gap-4 px-8 py-2 md:px-12">
-        <div className="flex flex-col gap-1">
+      <form className="flex flex-col gap-4 text-left">
+        <div className="flex flex-col gap-2">
           <Label htmlFor="user">Usuario</Label>
-
-          <Input
-            autoComplete="username"
-            className="max-md:h-10 max-md:px-4"
-            id="user"
-            placeholder="Ingresa tu usuario"
-          />
+          <Input autoComplete="username" id="user" placeholder="Ingresa tu usuario" />
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-2">
           <Label htmlFor="password">Contraseña</Label>
 
           <div className="relative">
             <Input
               autoComplete="current-password"
-              className="max-md:h-10 max-md:px-4"
               id="password"
               placeholder="Ingresa tu contraseña"
               type={showPassword ? 'text' : 'password'}
@@ -70,8 +63,8 @@ export const LoginAuth = (): JSX.Element => {
         </div>
       </form>
 
-      <div className="flex flex-col items-center gap-2 px-8 py-6 text-center md:px-12">
-        <Button className="min-w-[140px] max-md:h-10 max-md:px-4 md:min-w-[200px]" onClick={handleSingIn}>
+      <div className="flex flex-col items-center gap-2">
+        <Button className="w-full max-w-[200px]" onClick={handleSingIn}>
           <LogIn />
           Iniciar sesión
         </Button>
