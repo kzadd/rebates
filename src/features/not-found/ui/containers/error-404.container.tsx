@@ -12,7 +12,7 @@ export const Error404 = (): JSX.Element => {
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
       <div className="flex max-w-lg flex-col items-center gap-6 text-center">
-        <div className="flex h-32 w-32 items-center justify-center rounded-full bg-primary shadow-md">
+        <div className="flex h-32 w-32 items-center justify-center rounded-full bg-primary shadow-sm">
           <span className="text-5xl font-semibold text-white">404</span>
         </div>
 
