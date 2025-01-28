@@ -38,7 +38,7 @@ export const FiltersContainer = (): JSX.Element => {
   const handleFilterChange = (value: string): void => setSelectedFilter(value)
 
   return (
-    <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       <div className="flex flex-col gap-2">
         <Label htmlFor="department">Filtrar por departamento</Label>
 

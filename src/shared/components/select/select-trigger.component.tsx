@@ -10,7 +10,7 @@ interface SelectTriggerProps
     VariantProps<typeof selectTriggerVariants> {}
 
 const selectTriggerVariants = cva(
-  'flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-white text-sm shadow-sm outline-none transition-colors placeholder:text-disabled-foreground focus-visible:border-primary disabled:cursor-not-allowed disabled:bg-disabled [&>span]:line-clamp-1',
+  'flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-white text-sm shadow-sm outline-none transition-colors placeholder:text-disabled-foreground disabled:cursor-not-allowed disabled:bg-disabled data-[state=open]:border-primary [&>span]:line-clamp-1',
   {
     defaultVariants: {
       size: 'lg'
