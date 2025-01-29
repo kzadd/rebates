@@ -186,7 +186,7 @@ export const TableContainer = (): JSX.Element => {
               <TableCell className="min-w-[150px]">{item.responsible}</TableCell>
 
               <TableCell className="min-w-[150px]">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6">
                   <Button
                     className="p-0 transition-transform duration-200 hover:scale-110"
                     size="md"

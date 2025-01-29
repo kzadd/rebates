@@ -32,7 +32,7 @@ export const SummaryContainer = (): JSX.Element => {
     <div className="grid h-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:mt-9 lg:grid-cols-1">
       {summaryData.map((item, index) => (
         <div
-          className="flex w-full flex-col gap-2 rounded-lg border border-border bg-white p-6 shadow-sm hover:border-primary md:max-w-[220px]"
+          className="flex w-full flex-col gap-2 rounded-lg border border-border bg-white p-6 shadow-sm hover:border-primary md:max-w-[250px]"
           key={index}
         >
           <p>{item.title}</p>

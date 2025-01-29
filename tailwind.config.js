@@ -24,7 +24,7 @@ export default {
         border: 'hsl(var(--gray-300))',
         disabled: {
           DEFAULT: 'hsl(var(--gray-100))',
-          foreground: 'hsl(var(--gray-400))'
+          foreground: 'hsl(var(--gray-500))'
         },
         error: {
           100: 'hsl(var(--error-100))',
