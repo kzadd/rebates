@@ -29,41 +29,41 @@ interface SidebarProps {
   onToggleSidebar: () => void
 }
 
-const ICON_CLASS = 'h-5 w-5 transition-transform duration-200 hover:scale-110'
+const ICON_CLASSES = 'h-5 w-5 transition-transform duration-200 hover:scale-110'
 
 const menuItems: MenuItem[] = [
   {
-    icon: <House className={ICON_CLASS} />,
+    icon: <House className={ICON_CLASSES} />,
     label: 'Panel',
     path: FULL_ROUTE_PATHS.dashboard.root
   },
   {
-    icon: <CirclePlus className={ICON_CLASS} />,
+    icon: <CirclePlus className={ICON_CLASSES} />,
     label: 'Crear nuevo rebate',
     path: FULL_ROUTE_PATHS.dashboard.createNewRebate
   },
   {
-    icon: <CalendarCheck className={ICON_CLASS} />,
+    icon: <CalendarCheck className={ICON_CLASSES} />,
     label: 'Vigentes',
     path: FULL_ROUTE_PATHS.dashboard.currentRebate
   },
   {
-    icon: <Hourglass className={ICON_CLASS} />,
+    icon: <Hourglass className={ICON_CLASSES} />,
     label: 'Pendiente aprobación',
     path: FULL_ROUTE_PATHS.dashboard.pendingApprovalRebate
   },
   {
-    icon: <CalendarClock className={ICON_CLASS} />,
+    icon: <CalendarClock className={ICON_CLASSES} />,
     label: 'Pendiente pago',
     path: FULL_ROUTE_PATHS.dashboard.pendingPaymentRebate
   },
   {
-    icon: <PencilLine className={ICON_CLASS} />,
+    icon: <PencilLine className={ICON_CLASSES} />,
     label: 'Pendiente revisión',
     path: FULL_ROUTE_PATHS.dashboard.pendingReviewRebate
   },
   {
-    icon: <FileCheck className={ICON_CLASS} />,
+    icon: <FileCheck className={ICON_CLASSES} />,
     label: 'Pagados',
     path: FULL_ROUTE_PATHS.dashboard.paidRebate
   }
@@ -97,10 +97,10 @@ export const Sidebar = ({
         {isOpenSidebar ? (
           <>
             <span className="whitespace-nowrap text-sm">Cerrar</span>
-            <X className={ICON_CLASS} />
+            <X className={ICON_CLASSES} />
           </>
         ) : (
-          <Menu className={ICON_CLASS} />
+          <Menu className={ICON_CLASSES} />
         )}
       </div>
 
