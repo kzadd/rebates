@@ -8,7 +8,7 @@ interface LabelProps
   extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>,
     VariantProps<typeof labelVariants> {}
 
-const labelVariants = cva('text-[10px] font-semibold uppercase tracking-wider')
+const labelVariants = cva('text-xs')
 
 export const Label = React.forwardRef<React.ComponentRef<typeof LabelPrimitive.Root>, LabelProps>(
   ({ className, ...props }, ref) => {

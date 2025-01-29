@@ -18,13 +18,15 @@ export const FiltersContainer = (): JSX.Element => {
       <div className="flex flex-col gap-2">
         <Label htmlFor="department">Filtrar por departamento</Label>
 
-        <Select value="all">
+        <Select>
           <SelectTrigger id="department">
             <SelectValue placeholder="Seleccione un departamento" />
           </SelectTrigger>
 
           <SelectContent>
-            <SelectItem value="all">Todos los departamentos</SelectItem>
+            <SelectItem value="option-1">Option 1</SelectItem>
+            <SelectItem value="option-2">Option 2</SelectItem>
+            <SelectItem value="option-3">Option 3</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -32,13 +34,15 @@ export const FiltersContainer = (): JSX.Element => {
       <div className="flex flex-col gap-2">
         <Label htmlFor="filter">Filtrar por mes</Label>
 
-        <Select value="last-13-months">
+        <Select>
           <SelectTrigger id="filter">
             <SelectValue placeholder="Seleccione un filtro" />
           </SelectTrigger>
 
           <SelectContent>
-            <SelectItem value="last-13-months">Últimos 13 meses</SelectItem>
+            <SelectItem value="option-1">Option 1</SelectItem>
+            <SelectItem value="option-2">Option 2</SelectItem>
+            <SelectItem value="option-3">Option 3</SelectItem>
           </SelectContent>
         </Select>
       </div>

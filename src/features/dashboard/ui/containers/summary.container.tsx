@@ -43,7 +43,7 @@ export const SummaryContainer = (): JSX.Element => {
         <div className="flex flex-col gap-2" key={index}>
           <h3 className="text-sm text-muted">{item.title}</h3>
           {typeof item.content === 'string' ? (
-            <p className="text-lg font-semibold">{item.content}</p>
+            <p className="text-lg font-medium">{item.content}</p>
           ) : (
             item.content
           )}
