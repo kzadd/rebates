@@ -5,9 +5,9 @@ import { FULL_ROUTE_PATHS, TOKEN_KEYS } from '@app/shared/constants/app.constant
 import { putCookie } from '@app/shared/utils/cookie.utils'
 
 /**
- * Hook to manage the state and functionalities of the login.
+ * Hook to manage the state and functionalities of the login auth.
  */
-export const useLogin = () => {
+export const useLoginAuth = () => {
   const navigate = useNavigate()
 
   const [isShowPassword, setIsShowPassword] = useState(false)

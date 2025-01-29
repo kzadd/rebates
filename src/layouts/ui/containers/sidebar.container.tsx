@@ -89,14 +89,14 @@ export const Sidebar: FC<SidebarOptions> = ({
         role="button"
         tabIndex={0}
       >
-        {isOpenSidebar && (
+        {isOpenSidebar ? (
           <>
             <span className="whitespace-nowrap text-sm">Cerrar</span>
             <X className={ICON_CLASS} />
           </>
+        ) : (
+          <Menu className={ICON_CLASS} />
         )}
-
-        {!isOpenSidebar && <Menu className={ICON_CLASS} />}
       </div>
 
       <Separator className={cn('w-3/5 bg-black/20', isOpenSidebar && 'w-full')} />
@@ -114,7 +114,7 @@ export const Sidebar: FC<SidebarOptions> = ({
           >
             {item.icon}
 
-            {isOpenSidebar && (
+            {isOpenSidebar ? (
               <span
                 className={cn(
                   'overflow-hidden whitespace-nowrap text-sm',
@@ -123,9 +123,7 @@ export const Sidebar: FC<SidebarOptions> = ({
               >
                 {item.label}
               </span>
-            )}
-
-            {!isOpenSidebar && (
+            ) : (
               <span className="none absolute left-full ml-3 hidden w-max rounded-md bg-black px-3 py-2 text-xs opacity-0 transition-opacity group-hover:block group-hover:opacity-100">
                 {item.label}
               </span>

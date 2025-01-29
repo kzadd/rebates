@@ -2,13 +2,13 @@ import { JSX } from 'react'
 import { Eye, EyeOff, LogIn } from 'lucide-react'
 
 import { Button, Input, Label, Separator } from '@app/shared/components'
-import { useLogin } from '../../application/useLogin'
+import { useLoginAuth } from '../../application/useLoginAuth'
 
 /**
  * Login auth container.
  */
 export const LoginAuth = (): JSX.Element => {
-  const { isShowPassword, onSingIn, onTogglePasswordVisibility } = useLogin()
+  const { isShowPassword, onSingIn, onTogglePasswordVisibility } = useLoginAuth()
 
   return (
     <div className="flex w-full max-w-md flex-col gap-8 rounded-lg bg-white p-8 text-center shadow-xl">
