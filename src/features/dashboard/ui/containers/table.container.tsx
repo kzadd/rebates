@@ -62,26 +62,26 @@ const data = [
 export const TableContainer = (): JSX.Element => {
   return (
     <div className="flex flex-col gap-4">
-      <Table className=" ">
+      <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Mes</TableHead>
-            <TableHead>Departamento</TableHead>
-            <TableHead>Proveedor</TableHead>
-            <TableHead>Aporte</TableHead>
-            <TableHead>Detalle</TableHead>
+            <TableHead className="min-w-[120px]">Mes</TableHead>
+            <TableHead className="min-w-[200px]">Departamento</TableHead>
+            <TableHead className="min-w-[200px]">Proveedor</TableHead>
+            <TableHead className="min-w-[120px]">Aporte</TableHead>
+            <TableHead className="min-w-[200px]">Detalle</TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {data.map(item => (
             <TableRow key={item.id}>
-              <TableCell>{item.month}</TableCell>
-              <TableCell>{item.department}</TableCell>
-              <TableCell>{item.provider}</TableCell>
-              <TableCell>{item.amount}</TableCell>
+              <TableCell className="min-w-[120px]">{item.month}</TableCell>
+              <TableCell className="min-w-[200px]">{item.department}</TableCell>
+              <TableCell className="min-w-[200px]">{item.provider}</TableCell>
+              <TableCell className="min-w-[120px]">{item.amount}</TableCell>
 
-              <TableCell>
+              <TableCell className="min-w-[200px]">
                 <Button className="p-0" size="md" variant="link">
                   <PencilLine />
                   Revisar detalle

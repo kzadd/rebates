@@ -16,7 +16,7 @@ const Brand = (): JSX.Element => {
     <div className="flex min-h-screen flex-col pt-[var(--topbar-height)]">
       <Topbar variant="default" />
 
-      <div className="relative flex flex-1">
+      <div className="relative flex-1">
         {isOpenSidebar && (
           <div
             className="fixed inset-0 z-40 bg-black opacity-50 transition-opacity"
