@@ -77,7 +77,7 @@ export const FiltersContainer = (): JSX.Element => {
             </SelectTrigger>
 
             <SelectContent>
-              <SelectItem value="manual">Manual</SelectItem>
+              <SelectItem value="option">Option</SelectItem>
             </SelectContent>
           </Select>
         </div>
