@@ -1,25 +1,14 @@
-import { JSX, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { JSX } from 'react'
 import { Eye, EyeOff, LogIn } from 'lucide-react'
 
 import { Button, Input, Label, Separator } from '@app/shared/components'
-import { FULL_ROUTE_PATHS, TOKEN_KEYS } from '@app/shared/constants/app.constant'
-import { putCookie } from '@app/shared/utils/cookie.utils'
+import { useLogin } from '../../application/useLogin'
 
 /**
  * Login auth container.
  */
 export const LoginAuth = (): JSX.Element => {
-  const navigate = useNavigate()
-
-  const [showPassword, setShowPassword] = useState(false)
-
-  const handleSingIn = (): void => {
-    putCookie(TOKEN_KEYS.accessToken, 'testing')
-    navigate(FULL_ROUTE_PATHS.dashboard.root)
-  }
-
-  const handleTogglePasswordVisibility = (): void => setShowPassword(!showPassword)
+  const { isShowPassword, onSingIn, onTogglePasswordVisibility } = useLogin()
 
   return (
     <div className="flex w-full max-w-md flex-col gap-8 rounded-lg bg-white p-8 text-center shadow-xl">
@@ -46,24 +35,24 @@ export const LoginAuth = (): JSX.Element => {
               autoComplete="current-password"
               id="password"
               placeholder="Ingresa tu contraseña"
-              type={showPassword ? 'text' : 'password'}
+              type={isShowPassword ? 'text' : 'password'}
             />
 
             <Button
               className="absolute right-0 top-0 h-full hover:bg-transparent hover:shadow-none"
-              onClick={handleTogglePasswordVisibility}
+              onClick={onTogglePasswordVisibility}
               size="icon"
               type="button"
               variant="text"
             >
-              {showPassword ? <EyeOff /> : <Eye />}
+              {isShowPassword ? <EyeOff /> : <Eye />}
             </Button>
           </div>
         </div>
       </form>
 
       <div className="flex flex-col items-center gap-2">
-        <Button className="w-full max-w-[200px]" onClick={handleSingIn}>
+        <Button className="w-full max-w-[200px]" onClick={onSingIn}>
           <LogIn />
           Iniciar sesión
         </Button>
