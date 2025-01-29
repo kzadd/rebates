@@ -1,5 +1,5 @@
-import { JSX } from 'react'
-import { Download, FilePenLine, Trash2 } from 'lucide-react'
+import { JSX, useState } from 'react'
+import { ChevronDown, ChevronUp, Download, FilePenLine, Trash2 } from 'lucide-react'
 
 import {
   Button,
@@ -18,6 +18,22 @@ import {
   TableRow
 } from '@app/shared/components'
 
+// Datos de ejemplo para la tabla anidada
+const nestedTableData = [
+  {
+    id: 1,
+    details: 'Detalle 1',
+    quantity: 100,
+    subTotal: 1000
+  },
+  {
+    id: 2,
+    details: 'Detalle 2',
+    quantity: 200,
+    subTotal: 2000
+  }
+]
+
 const data = [
   {
     brand: 'Nike',
@@ -26,133 +42,28 @@ const data = [
     provider: 'Training Corp',
     sale: 25000,
     totalAmount: 2500,
-    type: 'Rebate de comisión'
+    type: 'Rebate de comisión',
+    details: nestedTableData
   },
   {
     brand: 'Adidas',
-    date: '2024-01-15',
+    date: '2024-01-02',
     id: 2,
-    provider: 'Media Solutions',
-    sale: 32000,
-    totalAmount: 3200,
-    type: 'Rebate por volumen'
-  },
-  {
-    brand: 'Puma',
-    date: '2024-02-01',
-    id: 3,
-    provider: 'Tech Services',
-    sale: 18000,
-    totalAmount: 1800,
-    type: 'Rebate de comisión'
-  },
-  {
-    brand: 'Under Armour',
-    date: '2024-02-15',
-    id: 4,
-    provider: 'Sports Direct',
-    sale: 45000,
-    totalAmount: 4500,
-    type: 'Rebate por volumen'
-  },
-  {
-    brand: 'New Balance',
-    date: '2024-03-01',
-    id: 5,
-    provider: 'Athletic Goods',
-    sale: 28000,
-    totalAmount: 2800,
-    type: 'Rebate de comisión'
-  },
-  {
-    brand: 'Reebok',
-    date: '2024-03-15',
-    id: 6,
-    provider: 'Fitness Pro',
+    provider: 'Sports Inc',
     sale: 35000,
     totalAmount: 3500,
-    type: 'Rebate por volumen'
-  },
-  {
-    brand: 'Nike',
-    date: '2024-04-01',
-    id: 7,
-    provider: 'Sports Elite',
-    sale: 42000,
-    totalAmount: 4200,
-    type: 'Rebate de comisión'
-  },
-  {
-    brand: 'Adidas',
-    date: '2024-04-15',
-    id: 8,
-    provider: 'Active Wear',
-    sale: 38000,
-    totalAmount: 3800,
-    type: 'Rebate por volumen'
+    type: 'Rebate por volumen',
+    details: nestedTableData
   },
   {
     brand: 'Puma',
-    date: '2024-05-01',
-    id: 9,
-    provider: 'Global Sports',
-    sale: 29000,
-    totalAmount: 2900,
-    type: 'Rebate de comisión'
-  },
-  {
-    brand: 'Under Armour',
-    date: '2024-05-15',
-    id: 10,
-    provider: 'Pro Athletics',
-    sale: 33000,
-    totalAmount: 3300,
-    type: 'Rebate por volumen'
-  },
-  {
-    brand: 'New Balance',
-    date: '2024-06-01',
-    id: 11,
-    provider: 'Sports Unlimited',
-    sale: 27000,
-    totalAmount: 2700,
-    type: 'Rebate de comisión'
-  },
-  {
-    brand: 'Reebok',
-    date: '2024-06-15',
-    id: 12,
-    provider: 'Athletic Zone',
-    sale: 31000,
-    totalAmount: 3100,
-    type: 'Rebate por volumen'
-  },
-  {
-    brand: 'Nike',
-    date: '2024-07-01',
-    id: 13,
-    provider: 'Sports World',
-    sale: 36000,
-    totalAmount: 3600,
-    type: 'Rebate de comisión'
-  },
-  {
-    brand: 'Adidas',
-    date: '2024-07-15',
-    id: 14,
-    provider: 'Fitness Gear',
-    sale: 41000,
-    totalAmount: 4100,
-    type: 'Rebate por volumen'
-  },
-  {
-    brand: 'Puma',
-    date: '2024-08-01',
-    id: 15,
-    provider: 'Athletic Hub',
-    sale: 39000,
-    totalAmount: 3900,
-    type: 'Rebate de comisión'
+    date: '2024-01-03',
+    id: 3,
+    provider: 'Athletic Goods',
+    sale: 45000,
+    totalAmount: 4500,
+    type: 'Rebate promocional',
+    details: nestedTableData
   }
 ]
 
@@ -160,6 +71,16 @@ const data = [
  * Table container.
  */
 export const TableContainer = (): JSX.Element => {
+  // Estado para controlar qué filas están expandidas
+  const [expandedRows, setExpandedRows] = useState<number[]>([])
+
+  // Función para manejar la expansión/colapso de filas
+  const toggleRow = (id: number) => {
+    setExpandedRows(prev =>
+      prev.includes(id) ? prev.filter(rowId => rowId !== id) : [...prev, id]
+    )
+  }
+
   return (
     <div className="flex flex-1 flex-col gap-4 overflow-hidden">
       <div className="flex w-full items-center gap-2">
@@ -173,6 +94,7 @@ export const TableContainer = (): JSX.Element => {
       <Table>
         <TableHeader>
           <TableRow>
+            <TableHead className="w-[50px]" />
             <TableHead>Proveedor</TableHead>
             <TableHead>Marca</TableHead>
             <TableHead>Tipo rebate</TableHead>
@@ -185,42 +107,78 @@ export const TableContainer = (): JSX.Element => {
 
         <TableBody>
           {data.map(item => (
-            <TableRow key={item.id}>
-              <TableCell>{item.provider}</TableCell>
-              <TableCell>{item.brand}</TableCell>
-              <TableCell>{item.type}</TableCell>
-              <TableCell>{item.date}</TableCell>
-              <TableCell>{item.sale}</TableCell>
-              <TableCell>{item.totalAmount}</TableCell>
-
-              <TableCell>
-                <div className="flex items-center gap-6">
-                  <Button
-                    className="p-0 transition-transform duration-200 hover:scale-110"
-                    size="md"
-                    variant="link"
-                  >
-                    <FilePenLine className="text-primary" />
+            <>
+              <TableRow className="cursor-pointer hover:bg-gray-50" key={item.id}>
+                <TableCell>
+                  <Button onClick={() => toggleRow(item.id)} size="sm" variant="text">
+                    {expandedRows.includes(item.id) ? (
+                      <ChevronUp className="h-4 w-4" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
                   </Button>
+                </TableCell>
+                <TableCell>{item.provider}</TableCell>
+                <TableCell>{item.brand}</TableCell>
+                <TableCell>{item.type}</TableCell>
+                <TableCell>{item.date}</TableCell>
+                <TableCell>{item.sale}</TableCell>
+                <TableCell>{item.totalAmount}</TableCell>
+                <TableCell>
+                  <div className="flex items-center gap-6">
+                    <Button
+                      className="p-0 transition-transform duration-200 hover:scale-110"
+                      size="md"
+                      variant="link"
+                    >
+                      <FilePenLine className="text-primary" />
+                    </Button>
 
-                  <Button
-                    className="p-0 transition-transform duration-200 hover:scale-110"
-                    size="md"
-                    variant="link"
-                  >
-                    <Download className="text-black" />
-                  </Button>
+                    <Button
+                      className="p-0 transition-transform duration-200 hover:scale-110"
+                      size="md"
+                      variant="link"
+                    >
+                      <Download className="text-black" />
+                    </Button>
 
-                  <Button
-                    className="p-0 transition-transform duration-200 hover:scale-110"
-                    size="md"
-                    variant="link"
-                  >
-                    <Trash2 className="text-error" />
-                  </Button>
-                </div>
-              </TableCell>
-            </TableRow>
+                    <Button
+                      className="p-0 transition-transform duration-200 hover:scale-110"
+                      size="md"
+                      variant="link"
+                    >
+                      <Trash2 className="text-error" />
+                    </Button>
+                  </div>
+                </TableCell>
+              </TableRow>
+
+              {/* Tabla anidada que se muestra cuando la fila está expandida */}
+              {expandedRows.includes(item.id) && (
+                <TableRow>
+                  <TableCell className="bg-gray-50 p-4" colSpan={8}>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Detalles</TableHead>
+                          <TableHead>Cantidad</TableHead>
+                          <TableHead>Subtotal</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {item.details.map(detail => (
+                          <TableRow key={detail.id}>
+                            <TableCell>{detail.details}</TableCell>
+                            <TableCell>{detail.quantity}</TableCell>
+                            <TableCell>{detail.subTotal}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableCell>
+                </TableRow>
+              )}
+            </>
           ))}
         </TableBody>
       </Table>
