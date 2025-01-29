@@ -165,27 +165,27 @@ export const TableContainer = (): JSX.Element => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="min-w-[160px]">Fecha creación</TableHead>
-            <TableHead className="min-w-[190px]">Tipo rebate</TableHead>
-            <TableHead className="min-w-[190px]">Proveedor</TableHead>
-            <TableHead className="min-w-[190px]">Departamento</TableHead>
-            <TableHead className="min-w-[150px]">Aporte total</TableHead>
-            <TableHead className="min-w-[150px]">Responsable</TableHead>
-            <TableHead className="min-w-[150px]">Acciones</TableHead>
+            <TableHead>Fecha creación</TableHead>
+            <TableHead>Tipo rebate</TableHead>
+            <TableHead>Proveedor</TableHead>
+            <TableHead>Departamento</TableHead>
+            <TableHead>Aporte total</TableHead>
+            <TableHead>Responsable</TableHead>
+            <TableHead>Acciones</TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {data.map(item => (
             <TableRow key={item.id}>
-              <TableCell className="min-w-[160px]">{item.date}</TableCell>
-              <TableCell className="min-w-[190px]">{item.type}</TableCell>
-              <TableCell className="min-w-[190px]">{item.provider}</TableCell>
-              <TableCell className="min-w-[190px]">{item.department}</TableCell>
-              <TableCell className="min-w-[150px]">{item.totalAmount}</TableCell>
-              <TableCell className="min-w-[150px]">{item.responsible}</TableCell>
+              <TableCell>{item.date}</TableCell>
+              <TableCell>{item.type}</TableCell>
+              <TableCell>{item.provider}</TableCell>
+              <TableCell>{item.department}</TableCell>
+              <TableCell>{item.totalAmount}</TableCell>
+              <TableCell>{item.responsible}</TableCell>
 
-              <TableCell className="min-w-[150px]">
+              <TableCell>
                 <div className="flex items-center gap-6">
                   <Button
                     className="p-0 transition-transform duration-200 hover:scale-110"

@@ -173,27 +173,27 @@ export const TableContainer = (): JSX.Element => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="min-w-[160px]">Proveedor</TableHead>
-            <TableHead className="min-w-[190px]">Marca</TableHead>
-            <TableHead className="min-w-[190px]">Tipo rebate</TableHead>
-            <TableHead className="min-w-[190px]">Fecha</TableHead>
-            <TableHead className="min-w-[150px]">Venta</TableHead>
-            <TableHead className="min-w-[150px]">Aporte total</TableHead>
-            <TableHead className="min-w-[150px]">Acciones</TableHead>
+            <TableHead>Proveedor</TableHead>
+            <TableHead>Marca</TableHead>
+            <TableHead>Tipo rebate</TableHead>
+            <TableHead>Fecha</TableHead>
+            <TableHead>Venta</TableHead>
+            <TableHead>Aporte total</TableHead>
+            <TableHead>Acciones</TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {data.map(item => (
             <TableRow key={item.id}>
-              <TableCell className="min-w-[160px]">{item.provider}</TableCell>
-              <TableCell className="min-w-[190px]">{item.brand}</TableCell>
-              <TableCell className="min-w-[190px]">{item.type}</TableCell>
-              <TableCell className="min-w-[190px]">{item.date}</TableCell>
-              <TableCell className="min-w-[150px]">{item.sale}</TableCell>
-              <TableCell className="min-w-[150px]">{item.totalAmount}</TableCell>
+              <TableCell>{item.provider}</TableCell>
+              <TableCell>{item.brand}</TableCell>
+              <TableCell>{item.type}</TableCell>
+              <TableCell>{item.date}</TableCell>
+              <TableCell>{item.sale}</TableCell>
+              <TableCell>{item.totalAmount}</TableCell>
 
-              <TableCell className="min-w-[150px]">
+              <TableCell>
                 <div className="flex items-center gap-6">
                   <Button
                     className="p-0 transition-transform duration-200 hover:scale-110"

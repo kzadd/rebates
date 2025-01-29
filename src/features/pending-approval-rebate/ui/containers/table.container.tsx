@@ -139,35 +139,35 @@ export const TableContainer = (): JSX.Element => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="min-w-[160px]">Tipo rebate</TableHead>
-            <TableHead className="min-w-[190px]">Periodo</TableHead>
-            <TableHead className="min-w-[190px]">Proveedor</TableHead>
-            <TableHead className="min-w-[190px]">Marca</TableHead>
-            <TableHead className="min-w-[150px]">Aporte total</TableHead>
-            <TableHead className="min-w-[150px]">Responsable</TableHead>
-            <TableHead className="min-w-[150px]">Documentos</TableHead>
-            <TableHead className="min-w-[150px]">Marcar como revisada</TableHead>
+            <TableHead>Tipo rebate</TableHead>
+            <TableHead>Periodo</TableHead>
+            <TableHead>Proveedor</TableHead>
+            <TableHead>Marca</TableHead>
+            <TableHead>Aporte total</TableHead>
+            <TableHead>Responsable</TableHead>
+            <TableHead>Documentos</TableHead>
+            <TableHead>Marcar como revisada</TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {data.map(item => (
             <TableRow key={item.id}>
-              <TableCell className="min-w-[160px]">{item.type}</TableCell>
-              <TableCell className="min-w-[190px]">{item.period}</TableCell>
-              <TableCell className="min-w-[190px]">{item.provider}</TableCell>
-              <TableCell className="min-w-[190px]">{item.brand}</TableCell>
-              <TableCell className="min-w-[150px]">{item.totalAmount}</TableCell>
-              <TableCell className="min-w-[150px]">{item.responsible}</TableCell>
+              <TableCell>{item.type}</TableCell>
+              <TableCell>{item.period}</TableCell>
+              <TableCell>{item.provider}</TableCell>
+              <TableCell>{item.brand}</TableCell>
+              <TableCell>{item.totalAmount}</TableCell>
+              <TableCell>{item.responsible}</TableCell>
 
-              <TableCell className="min-w-[150px]">
+              <TableCell>
                 <Button className="p-0" size="md" variant="link">
                   <Download />
                   Descargar
                 </Button>
               </TableCell>
 
-              <TableCell className="min-w-[150px]">
+              <TableCell>
                 <Switch />
               </TableCell>
             </TableRow>
