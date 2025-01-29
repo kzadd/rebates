@@ -1,8 +1,8 @@
 import { JSX } from 'react'
 import { Eye, EyeOff, LogIn } from 'lucide-react'
 
+import { useLoginAuth } from '@app/features/login/application/useLoginAuth'
 import { Button, Input, Label, Separator } from '@app/shared/components'
-import { useLoginAuth } from '../../application/useLoginAuth'
 
 /**
  * Login auth container.
