@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { cva, VariantProps } from 'class-variance-authority'
 
-import { Size } from '../../types/theme.types'
-import { cn } from '../../utils/shadcn.utils'
+import { Size } from '@app/shared/types/theme.types'
+import { cn } from '@app/shared/utils/shadcn.utils'
 
 interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,

@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import { cva, VariantProps } from 'class-variance-authority'
 
-import { cn } from '../../../utils/shadcn.utils'
+import { cn } from '@app/shared/utils/shadcn.utils'
 
 interface SelectContentProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>,

@@ -3,7 +3,7 @@ import * as SelectPrimitive from '@radix-ui/react-select'
 import { cva, VariantProps } from 'class-variance-authority'
 import { ChevronDown } from 'lucide-react'
 
-import { cn } from '../../../utils/shadcn.utils'
+import { cn } from '@app/shared/utils/shadcn.utils'
 
 interface SelectTriggerProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
