@@ -3,7 +3,7 @@ import * as SelectPrimitive from '@radix-ui/react-select'
 import { cva, VariantProps } from 'class-variance-authority'
 import { Check } from 'lucide-react'
 
-import { cn } from '../../utils/shadcn.utils'
+import { cn } from '../../../utils/shadcn.utils'
 
 interface SelectItemProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>,

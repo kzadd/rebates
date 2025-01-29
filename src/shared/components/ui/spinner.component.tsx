@@ -2,8 +2,8 @@ import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { LoaderCircle } from 'lucide-react'
 
-import { Color } from '../types/theme.types'
-import { cn } from '../utils/shadcn.utils'
+import { Color } from '../../types/theme.types'
+import { cn } from '../../utils/shadcn.utils'
 
 interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof spinnerVariants> {
   color?: Color

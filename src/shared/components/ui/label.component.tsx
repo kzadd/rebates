@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '../utils/shadcn.utils'
+import { cn } from '../../utils/shadcn.utils'
 
 interface LabelProps
   extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>,

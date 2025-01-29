@@ -5,6 +5,8 @@ import { LoginAuth } from './ui/containers/login-auth.container'
 /**
  * Login page.
  */
-export const Login = (): JSX.Element => {
+const Login = (): JSX.Element => {
   return <LoginAuth />
 }
+
+export default Login

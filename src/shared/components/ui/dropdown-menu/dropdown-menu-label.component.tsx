@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { cva, VariantProps } from 'class-variance-authority'
 
-import { cn } from '../../utils/shadcn.utils'
+import { cn } from '../../../utils/shadcn.utils'
 
 interface DropdownMenuLabelProps
   extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>,
