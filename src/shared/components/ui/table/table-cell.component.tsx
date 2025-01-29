@@ -7,9 +7,7 @@ interface TableCellProps
   extends React.TdHTMLAttributes<HTMLTableCellElement>,
     VariantProps<typeof tableCellVariants> {}
 
-const tableCellVariants = cva(
-  'p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]'
-)
+const tableCellVariants = cva('px-6 py-3 align-middle ')
 
 export const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, ...props }, ref) => {

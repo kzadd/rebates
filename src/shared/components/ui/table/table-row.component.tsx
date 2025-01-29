@@ -7,9 +7,7 @@ interface TableRowProps
   extends React.HTMLAttributes<HTMLTableRowElement>,
     VariantProps<typeof tableRowVariants> {}
 
-const tableRowVariants = cva(
-  'border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted'
-)
+const tableRowVariants = cva('border-b transition-colors')
 
 export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
   ({ className, ...props }, ref) => {

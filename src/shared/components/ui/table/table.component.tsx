@@ -7,7 +7,7 @@ interface TableProps
   extends React.HTMLAttributes<HTMLTableElement>,
     VariantProps<typeof tableVariants> {}
 
-const tableVariants = cva('w-full caption-bottom text-sm')
+const tableVariants = cva('w-full bg-white text-sm shadow-sm')
 
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ({ className, ...props }, ref) => {

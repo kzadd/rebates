@@ -8,7 +8,7 @@ interface TableHeadProps
     VariantProps<typeof tableHeadVariants> {}
 
 const tableHeadVariants = cva(
-  'h-10 px-2 text-left align-middle font-medium text-muted [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]'
+  'h-14 bg-disabled-foreground/30 px-6 py-3 text-left align-middle font-semibold'
 )
 
 export const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(

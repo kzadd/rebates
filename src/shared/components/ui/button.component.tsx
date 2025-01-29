@@ -82,7 +82,7 @@ const buttonVariants = cva(
   }
 )
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ asChild = false, className, color, size, variant, ...props }, ref) => {
     const buttonClass = buttonVariants({
       color,
@@ -97,3 +97,5 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 
 Button.displayName = 'Button'
+
+export { Button, type ButtonProps, buttonVariants }
