@@ -8,9 +8,9 @@ import { TableContainer } from './ui/containers/table.container'
 /**
  * Dashboard page.
  */
-export const Dashboard = (): JSX.Element => {
+const Dashboard = (): JSX.Element => {
   return (
-    <div className="flex w-full flex-col gap-6 p-4 sm:p-8  2xl:w-3/5">
+    <div className="flex w-full max-w-screen-xl flex-col gap-8 p-4 sm:p-8">
       <HeadingContainer />
       <FiltersContainer />
       <SummaryContainer />
@@ -18,3 +18,5 @@ export const Dashboard = (): JSX.Element => {
     </div>
   )
 }
+
+export default Dashboard

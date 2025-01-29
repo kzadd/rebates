@@ -1,5 +1,5 @@
 import { JSX } from 'react'
-import { ArrowDownToLine } from 'lucide-react'
+import { Download } from 'lucide-react'
 
 interface SummaryItem {
   title: string
@@ -26,7 +26,7 @@ const summaryData: SummaryItem[] = [
           Descargar listado completo
         </span>
 
-        <ArrowDownToLine className="h-4 w-4 text-link" />
+        <Download className="h-4 w-4 text-link" />
       </div>
     ),
     title: 'Reporte'
@@ -38,11 +38,15 @@ const summaryData: SummaryItem[] = [
  */
 export const SummaryContainer = (): JSX.Element => {
   return (
-    <div className="grid grid-cols-1 gap-4 rounded-lg border border-border bg-white p-6 shadow-sm hover:border-primary md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-cols-1 gap-2 gap-y-4 rounded-lg border border-border bg-white p-6 shadow-sm hover:border-primary md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {summaryData.map((item, index) => (
         <div className="flex flex-col gap-2" key={index}>
           <h3 className="text-sm text-muted">{item.title}</h3>
-          {typeof item.content === 'string' ? <p className="text-lg font-semibold">{item.content}</p> : item.content}
+          {typeof item.content === 'string' ? (
+            <p className="text-lg font-semibold">{item.content}</p>
+          ) : (
+            item.content
+          )}
         </div>
       ))}
     </div>
