@@ -16,7 +16,7 @@ const Brand = (): JSX.Element => {
     <div className="flex min-h-screen flex-col pt-[var(--topbar-height)]">
       <Topbar variant="default" />
 
-      <div className="relative flex-1">
+      <div className="relative flex flex-1">
         {isOpenSidebar && (
           <div
             className="fixed inset-0 z-40 bg-black opacity-50 transition-opacity"
@@ -31,7 +31,7 @@ const Brand = (): JSX.Element => {
           onToggleSidebar={onToggleSidebar}
         />
 
-        <div className="flex flex-1 flex-col pl-[var(--sidebar-icon-width)]">
+        <div className="flex flex-1 flex-col overflow-hidden pl-[var(--sidebar-icon-width)]">
           <main className="flex-1 overflow-y-auto p-4">
             <Outlet />
           </main>

@@ -53,6 +53,76 @@ const data = [
     id: 5,
     month: 'Mayo',
     provider: 'Maintenance Pro'
+  },
+  {
+    amount: 3100,
+    department: 'Finanzas',
+    id: 6,
+    month: 'Junio',
+    provider: 'Financial Plus'
+  },
+  {
+    amount: 2700,
+    department: 'Recursos Humanos',
+    id: 7,
+    month: 'Julio',
+    provider: 'HR Solutions'
+  },
+  {
+    amount: 3400,
+    department: 'Marketing',
+    id: 8,
+    month: 'Agosto',
+    provider: 'Digital Marketing Co'
+  },
+  {
+    amount: 2900,
+    department: 'Tecnología',
+    id: 9,
+    month: 'Septiembre',
+    provider: 'IT Services Pro'
+  },
+  {
+    amount: 3600,
+    department: 'Ventas',
+    id: 10,
+    month: 'Octubre',
+    provider: 'Sales Solutions'
+  },
+  {
+    amount: 2400,
+    department: 'Operaciones',
+    id: 11,
+    month: 'Noviembre',
+    provider: 'Operations Elite'
+  },
+  {
+    amount: 3300,
+    department: 'Finanzas',
+    id: 12,
+    month: 'Diciembre',
+    provider: 'Finance Corp'
+  },
+  {
+    amount: 2600,
+    department: 'Recursos Humanos',
+    id: 13,
+    month: 'Enero',
+    provider: 'Talent Solutions'
+  },
+  {
+    amount: 3000,
+    department: 'Marketing',
+    id: 14,
+    month: 'Febrero',
+    provider: 'Brand Masters'
+  },
+  {
+    amount: 2800,
+    department: 'Tecnología',
+    id: 15,
+    month: 'Marzo',
+    provider: 'Tech Innovators'
   }
 ]
 
