@@ -28,7 +28,13 @@ export const DropdownMenuLabel = React.forwardRef<
     inset
   })
 
-  return <DropdownMenuPrimitive.Label className={cn(dropdownMenuLabelClass, className)} ref={ref} {...props} />
+  return (
+    <DropdownMenuPrimitive.Label
+      className={cn(dropdownMenuLabelClass, className)}
+      ref={ref}
+      {...props}
+    />
+  )
 })
 
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName

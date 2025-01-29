@@ -5,7 +5,9 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { Color } from '../../types/theme.types'
 import { cn } from '../../utils/shadcn.utils'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean
   color?: Color
 }
@@ -20,14 +22,28 @@ const buttonVariants = cva(
       { class: 'bg-secondary hover:bg-secondary/90', color: 'secondary', variant: 'contained' },
       { class: 'bg-success hover:bg-success/90', color: 'success', variant: 'contained' },
       { class: 'bg-warning hover:bg-warning/90', color: 'warning', variant: 'contained' },
-
       { class: 'border-black text-black hover:bg-black/10', color: 'default', variant: 'outlined' },
       { class: 'border-error text-error hover:bg-error/10', color: 'error', variant: 'outlined' },
-      { class: 'border-primary text-primary hover:bg-primary/10', color: 'primary', variant: 'outlined' },
-      { class: 'border-secondary text-secondary hover:bg-secondary/10', color: 'secondary', variant: 'outlined' },
-      { class: 'border-success text-success hover:bg-success/10', color: 'success', variant: 'outlined' },
-      { class: 'border-warning text-warning hover:bg-warning/10', color: 'warning', variant: 'outlined' },
-
+      {
+        class: 'border-primary text-primary hover:bg-primary/10',
+        color: 'primary',
+        variant: 'outlined'
+      },
+      {
+        class: 'border-secondary text-secondary hover:bg-secondary/10',
+        color: 'secondary',
+        variant: 'outlined'
+      },
+      {
+        class: 'border-success text-success hover:bg-success/10',
+        color: 'success',
+        variant: 'outlined'
+      },
+      {
+        class: 'border-warning text-warning hover:bg-warning/10',
+        color: 'warning',
+        variant: 'outlined'
+      },
       { class: 'text-black hover:bg-black/10', color: 'default', variant: 'text' },
       { class: 'text-error hover:bg-error/10', color: 'error', variant: 'text' },
       { class: 'text-primary hover:bg-primary/10', color: 'primary', variant: 'text' },
@@ -56,7 +72,8 @@ const buttonVariants = cva(
         sm: 'h-8 px-3 text-xs'
       },
       variant: {
-        contained: 'text-white shadow-sm disabled:border disabled:border-border disabled:bg-disabled',
+        contained:
+          'text-white shadow-sm disabled:border disabled:border-border disabled:bg-disabled',
         link: 'text-link underline-offset-4 hover:underline hover:disabled:no-underline',
         outlined: 'border shadow-sm disabled:border disabled:border-border disabled:bg-disabled',
         text: 'hover:shadow-sm disabled:border disabled:border-border disabled:bg-disabled'

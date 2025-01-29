@@ -25,22 +25,23 @@ const selectTriggerVariants = cva(
   }
 )
 
-export const SelectTrigger = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Trigger>, SelectTriggerProps>(
-  ({ children, className, size, ...props }, ref) => {
-    const selectTriggerClass = selectTriggerVariants({
-      size
-    })
+export const SelectTrigger = React.forwardRef<
+  React.ComponentRef<typeof SelectPrimitive.Trigger>,
+  SelectTriggerProps
+>(({ children, className, size, ...props }, ref) => {
+  const selectTriggerClass = selectTriggerVariants({
+    size
+  })
 
-    return (
-      <SelectPrimitive.Trigger className={cn(selectTriggerClass, className)} ref={ref} {...props}>
-        {children}
+  return (
+    <SelectPrimitive.Trigger className={cn(selectTriggerClass, className)} ref={ref} {...props}>
+      {children}
 
-        <SelectPrimitive.Icon asChild>
-          <ChevronDown className="h-4 w-4 opacity-50" />
-        </SelectPrimitive.Icon>
-      </SelectPrimitive.Trigger>
-    )
-  }
-)
+      <SelectPrimitive.Icon asChild>
+        <ChevronDown className="h-4 w-4 opacity-50" />
+      </SelectPrimitive.Icon>
+    </SelectPrimitive.Trigger>
+  )
+})
 
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName

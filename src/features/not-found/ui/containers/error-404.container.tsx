@@ -19,8 +19,8 @@ export const Error404 = (): JSX.Element => {
         <h2 className="text-xl font-semibold">¡Página no encontrada!</h2>
 
         <p className="text-sm text-muted">
-          Lo sentimos, la página que estás buscando no existe o ha sido movida. Por favor, verifica la URL o regresa al
-          inicio.
+          Lo sentimos, la página que estás buscando no existe o ha sido movida. Por favor, verifica
+          la URL o regresa al inicio.
         </p>
 
         <Button asChild className="w-full max-w-[150px]">

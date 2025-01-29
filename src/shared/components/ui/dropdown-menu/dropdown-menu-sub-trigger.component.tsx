@@ -33,7 +33,11 @@ export const DropdownMenuSubTrigger = React.forwardRef<
   })
 
   return (
-    <DropdownMenuPrimitive.SubTrigger className={cn(dropdownMenuSubTriggerClass, className)} ref={ref} {...props}>
+    <DropdownMenuPrimitive.SubTrigger
+      className={cn(dropdownMenuSubTriggerClass, className)}
+      ref={ref}
+      {...props}
+    >
       {children}
       <ChevronRight className="ml-auto" />
     </DropdownMenuPrimitive.SubTrigger>

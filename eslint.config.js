@@ -13,7 +13,11 @@ import tseslint from 'typescript-eslint'
  * ESLint configuration.
  */
 export default tseslint.config({
-  extends: [eslint.configs.recommended, ...tseslint.configs.recommended, ...tseslint.configs.stylistic],
+  extends: [
+    eslint.configs.recommended,
+    ...tseslint.configs.recommended,
+    ...tseslint.configs.stylistic
+  ],
   files: ['**/*.{js,jsx,ts,tsx}'],
   ignores: ['coverage', 'dist', 'node_modules'],
   languageOptions: {

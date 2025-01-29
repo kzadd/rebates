@@ -10,8 +10,10 @@ export const Bottombar: FC<LayoutOptions> = ({ variant }): JSX.Element => {
   return (
     <footer
       className={cn(
-        variant === 'auth' && 'flex min-h-bottombar items-center justify-center bg-black p-4 text-center',
-        variant === 'default' && 'min-h-[calc(var(--bottombar-height)-16px)] bg-disabled-foreground/30'
+        variant === 'auth' &&
+          'flex min-h-bottombar items-center justify-center bg-black p-4 text-center',
+        variant === 'default' &&
+          'min-h-[calc(var(--bottombar-height)-16px)] bg-disabled-foreground/30'
       )}
     >
       {variant === 'auth' && (

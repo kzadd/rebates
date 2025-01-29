@@ -1,5 +1,5 @@
-import { FC, JSX, useCallback } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { FC, JSX } from 'react'
+import { Link } from 'react-router-dom'
 import {
   CalendarCheck,
   CalendarClock,
@@ -17,9 +17,11 @@ import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
 import { MenuItem } from '@app/shared/types/sidebar.types'
 import { cn } from '@app/shared/utils/shadcn.utils'
 
-interface SidebarProps {
+interface SidebarOptions {
+  isMenuActive: (path: string) => boolean
   isOpenSidebar: boolean
-  setIsOpenSidebar: (open: boolean) => void
+  onCloseSidebar: () => void
+  onToggleSidebar: () => void
 }
 
 const ICON_CLASS = 'h-5 w-5 transition-transform duration-200 hover:scale-110'
@@ -65,20 +67,12 @@ const menuItems: MenuItem[] = [
 /**
  * Sidebar container.
  */
-export const Sidebar: FC<SidebarProps> = ({ isOpenSidebar, setIsOpenSidebar }): JSX.Element => {
-  const location = useLocation()
-
-  const isActive = useCallback(
-    (path: string): boolean => {
-      return path === FULL_ROUTE_PATHS.dashboard.root ? location.pathname === path : location.pathname.startsWith(path)
-    },
-    [location.pathname]
-  )
-
-  const handleToggleSidebar = useCallback((): void => {
-    return setIsOpenSidebar(!isOpenSidebar)
-  }, [isOpenSidebar, setIsOpenSidebar])
-
+export const Sidebar: FC<SidebarOptions> = ({
+  isMenuActive,
+  isOpenSidebar,
+  onCloseSidebar,
+  onToggleSidebar
+}): JSX.Element => {
   return (
     <aside
       className={cn(
@@ -91,7 +85,7 @@ export const Sidebar: FC<SidebarProps> = ({ isOpenSidebar, setIsOpenSidebar }): 
           'flex rounded-lg p-3 transition-colors duration-200 hover:bg-black',
           isOpenSidebar && 'gap-2 self-end'
         )}
-        onClick={handleToggleSidebar}
+        onClick={onToggleSidebar}
         role="button"
         tabIndex={0}
       >
@@ -112,16 +106,21 @@ export const Sidebar: FC<SidebarProps> = ({ isOpenSidebar, setIsOpenSidebar }): 
           <Link
             className={cn(
               'group relative flex items-center gap-4 rounded-lg p-3 transition-colors duration-200 hover:bg-secondary',
-              isActive(item.path) && 'bg-secondary'
+              isMenuActive(item.path) && 'bg-secondary'
             )}
             key={`menu-item-${item.label}-${index}`}
-            onClick={() => isOpenSidebar && setIsOpenSidebar(false)}
+            onClick={() => isOpenSidebar && onCloseSidebar()}
             to={item.path}
           >
             {item.icon}
 
             {isOpenSidebar && (
-              <span className={cn('overflow-hidden whitespace-nowrap text-sm', isActive(item.path) && 'font-semibold')}>
+              <span
+                className={cn(
+                  'overflow-hidden whitespace-nowrap text-sm',
+                  isMenuActive(item.path) && 'font-semibold'
+                )}
+              >
                 {item.label}
               </span>
             )}

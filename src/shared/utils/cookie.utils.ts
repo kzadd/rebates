@@ -3,7 +3,9 @@ import Cookie from 'js-cookie'
 import { createError } from '../exceptions/create-error.exception'
 import { CookieOptions } from '../types/storage.types'
 
-const defaultCookieOptions: Required<Pick<CookieOptions, 'isBase64' | 'isJSON' | 'path' | 'secure'>> = {
+const defaultCookieOptions: Required<
+  Pick<CookieOptions, 'isBase64' | 'isJSON' | 'path' | 'secure'>
+> = {
   isBase64: false,
   isJSON: false,
   path: '/',
@@ -57,7 +59,11 @@ export const getCookie = <T = string>(key: string, options: CookieOptions = {}):
 /**
  * Stores data in browser cookies with specified key and configuration options.
  */
-export const putCookie = (key: string, value: string | object, options: CookieOptions = {}): void => {
+export const putCookie = (
+  key: string,
+  value: string | object,
+  options: CookieOptions = {}
+): void => {
   const { domain, expires, isBase64, isJSON, path, secure } = {
     ...defaultCookieOptions,
     ...options

@@ -6,4 +6,6 @@ import { afterEach } from 'vitest'
 /**
  * Cleans up the DOM after each test.
  */
-afterEach(() => cleanup())
+afterEach(() => {
+  return cleanup()
+})

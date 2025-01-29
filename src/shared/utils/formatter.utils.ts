@@ -16,9 +16,13 @@ export const formatDate = (date: Date | string, dateFormat: string): string => {
 /**
  * Formats a date string to the format 'dd/MM/yyyy'.
  */
-export const formatDateToShortDate = (date: Date | string): string => formatDate(date, 'dd/MM/yyyy')
+export const formatDateToShortDate = (date: Date | string): string => {
+  return formatDate(date, 'dd/MM/yyyy')
+}
 
 /**
  * Formats a date string to the format 'dd/MM/yyyy HH:mm'.
  */
-export const formatDateToShortDateTime = (date: Date | string): string => formatDate(date, 'dd/MM/yyyy HH:mm')
+export const formatDateToShortDateTime = (date: Date | string): string => {
+  return formatDate(date, 'dd/MM/yyyy HH:mm')
+}

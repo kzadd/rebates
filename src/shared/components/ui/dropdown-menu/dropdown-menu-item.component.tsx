@@ -31,7 +31,13 @@ export const DropdownMenuItem = React.forwardRef<
     inset
   })
 
-  return <DropdownMenuPrimitive.Item className={cn(dropdownMenuItemClass, className)} ref={ref} {...props} />
+  return (
+    <DropdownMenuPrimitive.Item
+      className={cn(dropdownMenuItemClass, className)}
+      ref={ref}
+      {...props}
+    />
+  )
 })
 
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName

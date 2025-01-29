@@ -5,7 +5,9 @@ import { LoaderCircle } from 'lucide-react'
 import { Color } from '../../types/theme.types'
 import { cn } from '../../utils/shadcn.utils'
 
-interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof spinnerVariants> {
+interface SpinnerProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof spinnerVariants> {
   color?: Color
 }
 
@@ -31,17 +33,19 @@ const spinnerVariants = cva('flex animate-spin items-center justify-center', {
   }
 })
 
-export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(({ className, color, size, ...props }, ref) => {
-  const spinnerClass = spinnerVariants({
-    color,
-    size
-  })
+export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
+  ({ className, color, size, ...props }, ref) => {
+    const spinnerClass = spinnerVariants({
+      color,
+      size
+    })
 
-  return (
-    <div className={cn(spinnerClass, className)} ref={ref} {...props}>
-      <LoaderCircle className="h-full w-full" />
-    </div>
-  )
-})
+    return (
+      <div className={cn(spinnerClass, className)} ref={ref} {...props}>
+        <LoaderCircle className="h-full w-full" />
+      </div>
+    )
+  }
+)
 
 Spinner.displayName = 'Spinner'

@@ -15,7 +15,11 @@ export const DropdownMenuSeparator = React.forwardRef<
   DropdownMenuSeparatorProps
 >(({ className, ...props }, ref) => {
   return (
-    <DropdownMenuPrimitive.Separator className={cn(dropdownMenuSeparatorVariants(), className)} ref={ref} {...props} />
+    <DropdownMenuPrimitive.Separator
+      className={cn(dropdownMenuSeparatorVariants(), className)}
+      ref={ref}
+      {...props}
+    />
   )
 })
 

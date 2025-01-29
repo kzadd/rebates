@@ -26,12 +26,14 @@ const inputVariants = cva(
   }
 )
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, size, ...props }, ref) => {
-  const inputClass = inputVariants({
-    size
-  })
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, size, ...props }, ref) => {
+    const inputClass = inputVariants({
+      size
+    })
 
-  return <input className={cn(inputClass, className)} ref={ref} {...props} />
-})
+    return <input className={cn(inputClass, className)} ref={ref} {...props} />
+  }
+)
 
 Input.displayName = 'Input'

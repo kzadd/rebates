@@ -7,15 +7,28 @@ import { withSuspense } from './shared/hoc/with-suspense.hoc'
 
 const AuthenticationLayout = lazy(() => import('./layouts/authentication.layout'))
 const BrandLayout = lazy(() => import('./layouts/brand.layout'))
-const CreateNewRebatePage = lazy(() => import('./features/create-new-rebate/create-new-rebate.page'))
+
+const CreateNewRebatePage = lazy(
+  () => import('./features/create-new-rebate/create-new-rebate.page')
+)
+
 const CurrentRebatePage = lazy(() => import('./features/current-rebate/current-rebate.page'))
 const DashboardPage = lazy(() => import('./features/dashboard/dashboard.page'))
 const LoginPage = lazy(() => import('./features/login/login.page'))
 const NotFoundPage = lazy(() => import('./features/not-found/not-found.page'))
 const PaidRebatePage = lazy(() => import('./features/paid-rebate/paid-rebate.page'))
-const PendingApprovalRebatePage = lazy(() => import('./features/pending-approval-rebate/pending-approval-rebate.page'))
-const PendingPaymentRebatePage = lazy(() => import('./features/pending-payment-rebate/pending-payment-rebate.page'))
-const PendingReviewRebatePage = lazy(() => import('./features/pending-review-rebate/pending-review-rebate.page'))
+
+const PendingApprovalRebatePage = lazy(
+  () => import('./features/pending-approval-rebate/pending-approval-rebate.page')
+)
+
+const PendingPaymentRebatePage = lazy(
+  () => import('./features/pending-payment-rebate/pending-payment-rebate.page')
+)
+
+const PendingReviewRebatePage = lazy(
+  () => import('./features/pending-review-rebate/pending-review-rebate.page')
+)
 
 /**
  * Routes configuration.

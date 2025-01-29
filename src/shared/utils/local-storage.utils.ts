@@ -25,7 +25,10 @@ export const deleteLocalStorage = (key: string): void => {
 /**
  * Gets data from localStorage by key identifier.
  */
-export const getLocalStorage = <T = string>(key: string, options: LocalStorageOptions = {}): T | null => {
+export const getLocalStorage = <T = string>(
+  key: string,
+  options: LocalStorageOptions = {}
+): T | null => {
   const { isBase64, isJSON } = {
     ...defaultLocalStorageOptions,
     ...options
@@ -53,7 +56,11 @@ export const getLocalStorage = <T = string>(key: string, options: LocalStorageOp
 /**
  * Stores data in localStorage with specified key.
  */
-export const putLocalStorage = (key: string, value: string | object, options: LocalStorageOptions = {}): void => {
+export const putLocalStorage = (
+  key: string,
+  value: string | object,
+  options: LocalStorageOptions = {}
+): void => {
   const { isBase64, isJSON } = {
     ...defaultLocalStorageOptions,
     ...options

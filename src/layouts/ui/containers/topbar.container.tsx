@@ -1,7 +1,8 @@
-import { FC, JSX, useCallback } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { FC, JSX } from 'react'
+import { Link } from 'react-router-dom'
 import { LogOut, User } from 'lucide-react'
 
+import { useTopbar } from '@app/layouts/application/useTopbar'
 import {
   Button,
   DropdownMenu,
@@ -12,20 +13,14 @@ import {
   DropdownMenuTrigger,
   Separator
 } from '@app/shared/components'
-import { FULL_ROUTE_PATHS, TOKEN_KEYS } from '@app/shared/constants/app.constant'
+import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
 import { LayoutOptions } from '@app/shared/types/layout.types'
-import { deleteCookie } from '@app/shared/utils/cookie.utils'
 
 /**
  * Topbar container.
  */
 export const Topbar: FC<LayoutOptions> = ({ variant }): JSX.Element => {
-  const navigate = useNavigate()
-
-  const handleSignOut = useCallback((): void => {
-    deleteCookie(TOKEN_KEYS.accessToken)
-    navigate(FULL_ROUTE_PATHS.auth.login)
-  }, [navigate])
+  const { onSignOut } = useTopbar()
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 flex min-h-topbar items-center justify-between gap-4 bg-black px-4">
@@ -39,7 +34,7 @@ export const Topbar: FC<LayoutOptions> = ({ variant }): JSX.Element => {
             <span className="px-3 text-sm text-white">Mateo López Fernández</span>
             <Separator className="h-6 bg-white/20" orientation="vertical" />
 
-            <Button className="text-sm text-white" onClick={handleSignOut} size="sm" variant="text">
+            <Button className="text-sm text-white" onClick={onSignOut} size="sm" variant="text">
               <LogOut className="text-error" />
               Cerrar sesión
             </Button>
@@ -57,7 +52,7 @@ export const Topbar: FC<LayoutOptions> = ({ variant }): JSX.Element => {
                 <DropdownMenuLabel>Mateo López Fernández</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
-                <DropdownMenuItem className="cursor-pointer text-sm text-black" onClick={handleSignOut}>
+                <DropdownMenuItem className="cursor-pointer text-sm text-black" onClick={onSignOut}>
                   <LogOut className="text-error" />
                   Cerrar sesión
                 </DropdownMenuItem>
