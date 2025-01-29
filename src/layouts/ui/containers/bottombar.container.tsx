@@ -1,4 +1,4 @@
-import { JSX } from 'react'
+import { FC, JSX } from 'react'
 
 import { LayoutOptions } from '@app/shared/types/layout.types'
 import { cn } from '@app/shared/utils/shadcn.utils'
@@ -6,7 +6,7 @@ import { cn } from '@app/shared/utils/shadcn.utils'
 /**
  * Bottombar container.
  */
-export const Bottombar = ({ variant }: LayoutOptions): JSX.Element => {
+export const Bottombar: FC<LayoutOptions> = ({ variant }): JSX.Element => {
   return (
     <footer
       className={cn(

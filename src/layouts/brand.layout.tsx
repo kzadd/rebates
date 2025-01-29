@@ -1,4 +1,4 @@
-import { JSX, useState } from 'react'
+import { JSX, useCallback, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { Bottombar } from './ui/containers/bottombar.container'
@@ -8,17 +8,20 @@ import { Topbar } from './ui/containers/topbar.container'
 /**
  * Brand layout.
  */
-export const Brand = (): JSX.Element => {
+const Brand = (): JSX.Element => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false)
 
-  const handleCloseSidebar = (): void => setIsOpenSidebar(false)
+  const handleCloseSidebar = useCallback((): void => setIsOpenSidebar(false), [])
 
   return (
     <div className="flex min-h-screen flex-col pt-[var(--topbar-height)]">
       <Topbar variant="default" />
 
       <div className="relative flex flex-1">
-        {isOpenSidebar && <div className="fixed inset-0 z-40 bg-black opacity-50" onClick={handleCloseSidebar} />}
+        {isOpenSidebar && (
+          <div className="fixed inset-0 z-40 bg-black opacity-50 transition-opacity" onClick={handleCloseSidebar} />
+        )}
+
         <Sidebar isOpenSidebar={isOpenSidebar} setIsOpenSidebar={setIsOpenSidebar} />
 
         <div className="flex flex-1 pl-[var(--sidebar-icon-width)]">
@@ -32,3 +35,5 @@ export const Brand = (): JSX.Element => {
     </div>
   )
 }
+
+export default Brand

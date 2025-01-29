@@ -1,4 +1,4 @@
-import { JSX } from 'react'
+import { FC, JSX, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { LogOut, User } from 'lucide-react'
 
@@ -19,13 +19,13 @@ import { deleteCookie } from '@app/shared/utils/cookie.utils'
 /**
  * Topbar container.
  */
-export const Topbar = ({ variant }: LayoutOptions): JSX.Element => {
+export const Topbar: FC<LayoutOptions> = ({ variant }): JSX.Element => {
   const navigate = useNavigate()
 
-  const handleSignOut = (): void => {
+  const handleSignOut = useCallback((): void => {
     deleteCookie(TOKEN_KEYS.accessToken)
     navigate(FULL_ROUTE_PATHS.auth.login)
-  }
+  }, [navigate])
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 flex min-h-topbar items-center justify-between gap-4 bg-black px-4">
@@ -57,16 +57,9 @@ export const Topbar = ({ variant }: LayoutOptions): JSX.Element => {
                 <DropdownMenuLabel>Mateo López Fernández</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
-                <DropdownMenuItem asChild>
-                  <Button
-                    className="w-full cursor-pointer justify-start text-sm text-black"
-                    onClick={handleSignOut}
-                    size="sm"
-                    variant="text"
-                  >
-                    <LogOut className="text-error" />
-                    Cerrar sesión
-                  </Button>
+                <DropdownMenuItem className="cursor-pointer text-sm text-black" onClick={handleSignOut}>
+                  <LogOut className="text-error" />
+                  Cerrar sesión
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

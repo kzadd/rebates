@@ -1,4 +1,4 @@
-import { JSX } from 'react'
+import { FC, JSX, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
   CalendarCheck,
@@ -22,39 +22,41 @@ interface SidebarProps {
   setIsOpenSidebar: (open: boolean) => void
 }
 
+const ICON_CLASS = 'h-5 w-5 transition-transform duration-200 hover:scale-110'
+
 const menuItems: MenuItem[] = [
   {
-    icon: 'House',
+    icon: <House className={ICON_CLASS} />,
     label: 'Panel',
     path: FULL_ROUTE_PATHS.dashboard.root
   },
   {
-    icon: 'CirclePlus',
+    icon: <CirclePlus className={ICON_CLASS} />,
     label: 'Crear nuevo rebate',
     path: FULL_ROUTE_PATHS.dashboard.createNewRebate
   },
   {
-    icon: 'CalendarCheck',
+    icon: <CalendarCheck className={ICON_CLASS} />,
     label: 'Vigentes',
     path: FULL_ROUTE_PATHS.dashboard.currentRebate
   },
   {
-    icon: 'Hourglass',
+    icon: <Hourglass className={ICON_CLASS} />,
     label: 'Pendiente aprobación',
     path: FULL_ROUTE_PATHS.dashboard.pendingApprovalRebate
   },
   {
-    icon: 'CalendarClock',
+    icon: <CalendarClock className={ICON_CLASS} />,
     label: 'Pendiente pago',
     path: FULL_ROUTE_PATHS.dashboard.pendingPaymentRebate
   },
   {
-    icon: 'PencilLine',
+    icon: <PencilLine className={ICON_CLASS} />,
     label: 'Pendiente revisión',
     path: FULL_ROUTE_PATHS.dashboard.pendingReviewRebate
   },
   {
-    icon: 'FileCheck',
+    icon: <FileCheck className={ICON_CLASS} />,
     label: 'Pagados',
     path: FULL_ROUTE_PATHS.dashboard.paidRebate
   }
@@ -63,36 +65,19 @@ const menuItems: MenuItem[] = [
 /**
  * Sidebar container.
  */
-export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.Element => {
+export const Sidebar: FC<SidebarProps> = ({ isOpenSidebar, setIsOpenSidebar }): JSX.Element => {
   const location = useLocation()
 
-  const getIcon = (iconName: string): JSX.Element => {
-    const icons = {
-      CalendarCheck,
-      CalendarClock,
-      CirclePlus,
-      FileCheck,
-      Hourglass,
-      House,
-      Menu,
-      PencilLine,
-      X
-    }
+  const isActive = useCallback(
+    (path: string): boolean => {
+      return path === FULL_ROUTE_PATHS.dashboard.root ? location.pathname === path : location.pathname.startsWith(path)
+    },
+    [location.pathname]
+  )
 
-    const Icon = icons[iconName as keyof typeof icons]
-
-    return <Icon className="h-5 w-5 transition-transform duration-200 hover:scale-110" />
-  }
-
-  const isActive = (path: string): boolean => {
-    if (path === FULL_ROUTE_PATHS.dashboard.root) {
-      return location.pathname === path
-    }
-
-    return location.pathname.startsWith(path)
-  }
-
-  const handleToggleSidebar = (): void => setIsOpenSidebar(!isOpenSidebar)
+  const handleToggleSidebar = useCallback((): void => {
+    return setIsOpenSidebar(!isOpenSidebar)
+  }, [isOpenSidebar, setIsOpenSidebar])
 
   return (
     <aside
@@ -110,14 +95,14 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
         role="button"
         tabIndex={0}
       >
-        {!isOpenSidebar && getIcon('Menu')}
-
         {isOpenSidebar && (
           <>
             <span className="whitespace-nowrap text-sm">Cerrar</span>
-            {getIcon('X')}
+            <X className={ICON_CLASS} />
           </>
         )}
+
+        {!isOpenSidebar && <Menu className={ICON_CLASS} />}
       </div>
 
       <Separator className={cn('w-3/5 bg-black/20', isOpenSidebar && 'w-full')} />
@@ -133,7 +118,7 @@ export const Sidebar = ({ isOpenSidebar, setIsOpenSidebar }: SidebarProps): JSX.
             onClick={() => isOpenSidebar && setIsOpenSidebar(false)}
             to={item.path}
           >
-            {getIcon(item.icon)}
+            {item.icon}
 
             {isOpenSidebar && (
               <span className={cn('overflow-hidden whitespace-nowrap text-sm', isActive(item.path) && 'font-semibold')}>

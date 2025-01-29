@@ -7,7 +7,7 @@ import { Topbar } from './ui/containers/topbar.container'
 /**
  * Authentication layout.
  */
-export const Authentication = (): JSX.Element => {
+const Authentication = (): JSX.Element => {
   return (
     <div className="flex min-h-screen flex-col pt-[var(--topbar-height)]">
       <Topbar variant="auth" />
@@ -20,3 +20,5 @@ export const Authentication = (): JSX.Element => {
     </div>
   )
 }
+
+export default Authentication
