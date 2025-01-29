@@ -5,27 +5,17 @@ import { ProtectedRoute } from './core/guards/protected-route.guard'
 import { ROUTE_PATHS } from './shared/constants/routes.constant'
 import { withSuspense } from './shared/hoc/with-suspense.hoc'
 
-/**
- * Helper function to create lazy loaded components
- */
-const createLazyComponent = (path: string, moduleName: string) => {
-  return lazy(() => {
-    // @vite-ignore
-    return import(path).then(module => ({ default: module[moduleName] }))
-  })
-}
-
-const AuthenticationLayout = createLazyComponent('./layouts/authentication.layout', 'Authentication')
-const BrandLayout = createLazyComponent('./layouts/brand.layout', 'Brand')
-const CreateNewRebatePage = createLazyComponent('./features/create-new-rebate', 'CreateNewRebate')
-const CurrentRebatePage = createLazyComponent('./features/current-rebate', 'CurrentRebate')
-const DashboardPage = createLazyComponent('./features/dashboard', 'Dashboard')
-const LoginPage = createLazyComponent('./features/login', 'Login')
-const NotFoundPage = createLazyComponent('./features/not-found', 'NotFound')
-const PaidRebatePage = createLazyComponent('./features/paid-rebate', 'PaidRebate')
-const PendingApprovalRebatePage = createLazyComponent('./features/pending-approval-rebate', 'PendingApprovalRebate')
-const PendingPaymentRebatePage = createLazyComponent('./features/pending-payment-rebate', 'PendingPaymentRebate')
-const PendingReviewRebatePage = createLazyComponent('./features/pending-review-rebate', 'PendingReviewRebate')
+const AuthenticationLayout = lazy(() => import('./layouts/authentication.layout'))
+const BrandLayout = lazy(() => import('./layouts/brand.layout'))
+const CreateNewRebatePage = lazy(() => import('./features/create-new-rebate/create-new-rebate.page'))
+const CurrentRebatePage = lazy(() => import('./features/current-rebate/current-rebate.page'))
+const DashboardPage = lazy(() => import('./features/dashboard/dashboard.page'))
+const LoginPage = lazy(() => import('./features/login/login.page'))
+const NotFoundPage = lazy(() => import('./features/not-found/not-found.page'))
+const PaidRebatePage = lazy(() => import('./features/paid-rebate/paid-rebate.page'))
+const PendingApprovalRebatePage = lazy(() => import('./features/pending-approval-rebate/pending-approval-rebate.page'))
+const PendingPaymentRebatePage = lazy(() => import('./features/pending-payment-rebate/pending-payment-rebate.page'))
+const PendingReviewRebatePage = lazy(() => import('./features/pending-review-rebate/pending-review-rebate.page'))
 
 /**
  * Routes configuration.
@@ -40,12 +30,12 @@ export const routes: RouteObject[] = [
   {
     children: [
       {
-        element: <Navigate to={ROUTE_PATHS.login} />,
-        index: true
-      },
-      {
         element: <LoginPage />,
         path: ROUTE_PATHS.login
+      },
+      {
+        element: <Navigate to={ROUTE_PATHS.login} />,
+        index: true
       }
     ],
     element: withSuspense(<AuthenticationLayout />),
@@ -60,32 +50,26 @@ export const routes: RouteObject[] = [
       },
       {
         element: <CreateNewRebatePage />,
-        index: true,
         path: ROUTE_PATHS.createNewRebate
       },
       {
         element: <CurrentRebatePage />,
-        index: true,
         path: ROUTE_PATHS.currentRebate
       },
       {
         element: <PendingApprovalRebatePage />,
-        index: true,
         path: ROUTE_PATHS.pendingApprovalRebate
       },
       {
         element: <PendingPaymentRebatePage />,
-        index: true,
         path: ROUTE_PATHS.pendingPaymentRebate
       },
       {
         element: <PendingReviewRebatePage />,
-        index: true,
         path: ROUTE_PATHS.pendingReviewRebate
       },
       {
         element: <PaidRebatePage />,
-        index: true,
         path: ROUTE_PATHS.paidRebate
       }
     ],

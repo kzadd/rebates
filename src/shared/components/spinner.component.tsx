@@ -2,11 +2,11 @@ import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { LoaderCircle } from 'lucide-react'
 
-import { PaletteColor } from '../types/palette.types'
+import { Color } from '../types/theme.types'
 import { cn } from '../utils/shadcn.utils'
 
 interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof spinnerVariants> {
-  color?: PaletteColor
+  color?: Color
 }
 
 const spinnerVariants = cva('flex animate-spin items-center justify-center', {

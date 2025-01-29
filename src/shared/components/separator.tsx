@@ -2,12 +2,13 @@ import * as React from 'react'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 import { cva, VariantProps } from 'class-variance-authority'
 
+import { Direction } from '../types/theme.types'
 import { cn } from '../utils/shadcn.utils'
 
 interface SeparatorProps
   extends Omit<React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>, 'orientation'>,
     VariantProps<typeof separatorVariants> {
-  orientation?: 'horizontal' | 'vertical'
+  orientation?: Direction
 }
 
 const separatorVariants = cva('shrink-0 bg-border', {

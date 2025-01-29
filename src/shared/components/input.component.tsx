@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { cva, VariantProps } from 'class-variance-authority'
 
+import { Size } from '../types/theme.types'
 import { cn } from '../utils/shadcn.utils'
 
 interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof inputVariants> {
-  size?: 'lg' | 'md' | 'sm'
+  size?: Exclude<Size, 'icon'>
 }
 
 const inputVariants = cva(

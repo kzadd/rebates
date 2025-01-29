@@ -1,5 +1,7 @@
+import { JSX } from 'react'
+
 export interface MenuItem {
-  icon: string
+  icon: JSX.Element
   label: string
   path: string
 }
