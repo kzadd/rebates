@@ -14,7 +14,7 @@ interface TopbarControls {
 export const useTopbar = (): TopbarControls => {
   const navigate = useNavigate()
 
-  const handleSignOut = useCallback((): void => {
+  const handleSignOut = useCallback(() => {
     deleteCookie(TOKEN_KEYS.accessToken)
     navigate(FULL_ROUTE_PATHS.auth.login)
   }, [navigate])

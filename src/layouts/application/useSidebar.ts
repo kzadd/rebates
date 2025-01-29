@@ -30,15 +30,15 @@ export const useSidebar = (): SidebarControls => {
     [location.pathname]
   )
 
-  const handleCloseSidebar = useCallback((): void => {
+  const handleCloseSidebar = useCallback(() => {
     setIsOpenSidebar(false)
   }, [])
 
-  const handleOpenSidebar = useCallback((): void => {
+  const handleOpenSidebar = useCallback(() => {
     setIsOpenSidebar(true)
   }, [])
 
-  const handleToggleSidebar = useCallback((): void => {
+  const handleToggleSidebar = useCallback(() => {
     setIsOpenSidebar(prev => !prev)
   }, [])
 
