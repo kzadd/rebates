@@ -1,4 +1,4 @@
-import { FC, JSX } from 'react'
+import { JSX } from 'react'
 import { Link } from 'react-router-dom'
 import {
   CalendarCheck,
@@ -14,10 +14,15 @@ import {
 
 import { Separator } from '@app/shared/components'
 import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
-import { MenuItem } from '@app/shared/types/sidebar.types'
 import { cn } from '@app/shared/utils/shadcn.utils'
 
-interface SidebarOptions {
+interface MenuItem {
+  icon: JSX.Element
+  label: string
+  path: string
+}
+
+interface SidebarProps {
   isMenuActive: (path: string) => boolean
   isOpenSidebar: boolean
   onCloseSidebar: () => void
@@ -67,12 +72,12 @@ const menuItems: MenuItem[] = [
 /**
  * Sidebar container.
  */
-export const Sidebar: FC<SidebarOptions> = ({
+export const Sidebar = ({
   isMenuActive,
   isOpenSidebar,
   onCloseSidebar,
   onToggleSidebar
-}): JSX.Element => {
+}: SidebarProps): JSX.Element => {
   return (
     <aside
       className={cn(

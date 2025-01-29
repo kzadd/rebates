@@ -22,7 +22,7 @@ export const deleteCookie = (key: string): void => {
     console.error(`Unable to delete cookie ${key}`, error)
 
     throw createError({
-      originalError: error as Error,
+      originalError: error instanceof Error ? error : new Error(String(error)),
       reason: 'DELETE_COOKIE_ERROR'
     })
   }
@@ -50,7 +50,7 @@ export const getCookie = <T = string>(key: string, options: CookieOptions = {}):
     console.error(`Unable to get data from cookie ${key}`, error)
 
     throw createError({
-      originalError: error as Error,
+      originalError: error instanceof Error ? error : new Error(String(error)),
       reason: 'GET_COOKIE_ERROR'
     })
   }
@@ -59,11 +59,7 @@ export const getCookie = <T = string>(key: string, options: CookieOptions = {}):
 /**
  * Stores data in browser cookies with specified key and configuration options.
  */
-export const putCookie = (
-  key: string,
-  value: string | object,
-  options: CookieOptions = {}
-): void => {
+export const putCookie = <T = string>(key: string, value: T, options: CookieOptions = {}): void => {
   const { domain, expires, isBase64, isJSON, path, secure } = {
     ...defaultCookieOptions,
     ...options
@@ -83,7 +79,7 @@ export const putCookie = (
     console.error(`Unable to put data into cookie ${key}`, error)
 
     throw createError({
-      originalError: error as Error,
+      originalError: error instanceof Error ? error : new Error(String(error)),
       reason: 'PUT_COOKIE_ERROR'
     })
   }

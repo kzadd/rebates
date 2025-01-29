@@ -1,4 +1,4 @@
-import { FC, JSX } from 'react'
+import { JSX } from 'react'
 import { Link } from 'react-router-dom'
 import { LogOut, User } from 'lucide-react'
 
@@ -14,12 +14,15 @@ import {
   Separator
 } from '@app/shared/components'
 import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
-import { LayoutOptions } from '@app/shared/types/layout.types'
+
+interface TopbarProps {
+  variant: 'auth' | 'default'
+}
 
 /**
  * Topbar container.
  */
-export const Topbar: FC<LayoutOptions> = ({ variant }): JSX.Element => {
+export const Topbar = ({ variant }: TopbarProps): JSX.Element => {
   const { onSignOut } = useTopbar()
 
   return (

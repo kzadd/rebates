@@ -16,7 +16,7 @@ export const deleteLocalStorage = (key: string): void => {
     console.error(`Unable to delete item from localStorage with key ${key}`, error)
 
     throw createError({
-      originalError: error as Error,
+      originalError: error instanceof Error ? error : new Error(String(error)),
       reason: 'DELETE_LOCAL_STORAGE_ERROR'
     })
   }
@@ -47,7 +47,7 @@ export const getLocalStorage = <T = string>(
     console.error(`Unable to get data from localStorage with key ${key}`, error)
 
     throw createError({
-      originalError: error as Error,
+      originalError: error instanceof Error ? error : new Error(String(error)),
       reason: 'GET_LOCAL_STORAGE_ERROR'
     })
   }
@@ -56,9 +56,9 @@ export const getLocalStorage = <T = string>(
 /**
  * Stores data in localStorage with specified key.
  */
-export const putLocalStorage = (
+export const putLocalStorage = <T = string>(
   key: string,
-  value: string | object,
+  value: T,
   options: LocalStorageOptions = {}
 ): void => {
   const { isBase64, isJSON } = {
@@ -75,7 +75,7 @@ export const putLocalStorage = (
     console.error(`Unable to put data into localStorage with key ${key}`, error)
 
     throw createError({
-      originalError: error as Error,
+      originalError: error instanceof Error ? error : new Error(String(error)),
       reason: 'PUT_LOCAL_STORAGE_ERROR'
     })
   }

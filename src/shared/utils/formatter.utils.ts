@@ -4,11 +4,9 @@ import { format } from 'date-fns'
  * Formats a date to a specified format.
  */
 export const formatDate = (date: Date | string, dateFormat: string): string => {
-  if (!date) return ''
+  const parsedDate = date instanceof Date ? date : new Date(date)
 
-  const parsedDate = typeof date === 'string' ? new Date(date) : date
-
-  if (isNaN(parsedDate.getTime())) return ''
+  if (Number.isNaN(parsedDate.getTime())) return ''
 
   return format(parsedDate, dateFormat)
 }

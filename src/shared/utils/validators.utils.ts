@@ -9,58 +9,50 @@ const errorMessages = {
 /**
  * Custom validator to check if input value is a valid email address.
  */
-export const isEmail = (value: string): string => {
-  if (!value) return ''
+export const isEmail = (value: string): string | null => {
+  if (!value) return null
 
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-  const isValid = emailRegex.test(value.trim())
 
-  return isValid ? '' : errorMessages.email
+  return emailRegex.test(value.trim()) ? null : errorMessages.email
 }
 
 /**
  * Custom validator to check if input value contains only numeric characters.
  */
-export const isNumber = (value: string): string => {
-  if (!value) return ''
+export const isNumber = (value: string): string | null => {
+  if (!value) return null
 
   const numericRegex = /^[0-9]+$/
-  const isValid = numericRegex.test(value.trim())
 
-  return isValid ? '' : errorMessages.number
+  return numericRegex.test(value.trim()) ? null : errorMessages.number
 }
 
 /**
  * Custom validator to check if input field has a non-empty value.
  */
-export const isRequired = (value: string): string => {
-  const isValid = value && value.trim().length
-
-  return isValid ? '' : errorMessages.required
+export const isRequired = (value: string): string | null => {
+  return value.trim().length > 0 ? null : errorMessages.required
 }
 
 /**
  * Custom validator factory that creates a validator to check maximum length.
  */
-export const maxLength = (length: number) => {
-  return (value: string): string => {
-    if (!value) return ''
+export const maxLength = (length: number): ((value: string) => string | null) => {
+  return (value: string): string | null => {
+    if (!value) return null
 
-    const isValid = value.trim().length <= length
-
-    return isValid ? '' : errorMessages.maxLength(length)
+    return value.trim().length <= length ? null : errorMessages.maxLength(length)
   }
 }
 
 /**
  * Custom validator factory that creates a validator to check minimum length.
  */
-export const minLength = (length: number) => {
-  return (value: string): string => {
-    if (!value) return ''
+export const minLength = (length: number): ((value: string) => string | null) => {
+  return (value: string): string | null => {
+    if (!value) return null
 
-    const isValid = value.trim().length >= length
-
-    return isValid ? '' : errorMessages.minLength(length)
+    return value.trim().length >= length ? null : errorMessages.minLength(length)
   }
 }

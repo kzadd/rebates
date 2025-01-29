@@ -1,4 +1,4 @@
-import axios, { AxiosHeaders, AxiosRequestConfig } from 'axios'
+import axios, { AxiosError, AxiosHeaders, AxiosRequestConfig } from 'axios'
 
 import {
   HttpMethod,
@@ -56,9 +56,16 @@ const createRequest = async <T>({
     return {
       data: response.data
     }
-  } catch (error) {
-    console.error(`Request to ${url} failed`, error)
-    throw error
+  } catch (error: unknown) {
+    const axiosError = error as AxiosError
+
+    console.error(`Request to ${url} failed`, axiosError)
+
+    throw {
+      data: axiosError.response?.data || null,
+      message: axiosError.message,
+      status: axiosError.response?.status || 500
+    }
   }
 }
 
