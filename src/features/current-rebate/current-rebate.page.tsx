@@ -14,8 +14,11 @@ const CurrentRebate = (): JSX.Element => {
     <PageWrapper>
       <HeadingContainer />
       <FiltersContainer />
-      <TableContainer />
-      <SummaryContainer />
+
+      <div className="flex flex-col gap-8 lg:flex-row">
+        <TableContainer />
+        <SummaryContainer />
+      </div>
     </PageWrapper>
   )
 }

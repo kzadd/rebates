@@ -18,7 +18,7 @@ import {
   TableRow
 } from '@app/shared/components'
 
-const data = [
+export const data = [
   {
     date: '2024-01-01',
     department: 'Recursos Humanos',
@@ -71,7 +71,7 @@ const data = [
  */
 export const TableContainer = (): JSX.Element => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 overflow-hidden">
       <Table>
         <TableHeader>
           <TableRow>

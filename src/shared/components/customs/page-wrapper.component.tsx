@@ -8,5 +8,5 @@ interface PageWrapperProps {
  * Page wrapper component.
  */
 export const PageWrapper = ({ children }: PageWrapperProps): JSX.Element => {
-  return <div className="flex w-full max-w-screen-xl flex-col gap-8 p-4 sm:p-8">{children}</div>
+  return <div className="flex w-full flex-col gap-8 p-4 sm:p-8">{children}</div>
 }

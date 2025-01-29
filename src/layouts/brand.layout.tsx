@@ -31,7 +31,7 @@ const Brand = (): JSX.Element => {
           onToggleSidebar={onToggleSidebar}
         />
 
-        <div className="flex flex-1 pl-[var(--sidebar-icon-width)]">
+        <div className="flex flex-1 flex-col pl-[var(--sidebar-icon-width)]">
           <main className="flex-1 overflow-y-auto p-4">
             <Outlet />
           </main>
